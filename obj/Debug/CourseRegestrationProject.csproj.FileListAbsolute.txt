@@ -57,3 +57,5 @@ C:\Users\Anurag\source\repos\CourseRegestrationProject\obj\Debug\CourseRegestrat
 C:\Users\Anurag\source\repos\CourseRegestrationProject\obj\Debug\CourseRe.E7D5B049.Up2Date
 C:\Users\Anurag\source\repos\CourseRegestrationProject\obj\Debug\CourseRegestrationProject.dll
 C:\Users\Anurag\source\repos\CourseRegestrationProject\obj\Debug\CourseRegestrationProject.pdb
+C:\Users\Anurag\source\repos\CourseRegestrationProject\bin\System.Data.SqlClient.dll
+C:\Users\Anurag\source\repos\CourseRegestrationProject\bin\System.Data.SqlClient.xml

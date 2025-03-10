@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Dashbard.aspx.cs" Inherits="CourseRegestrationProject.WebForm1" %>
+﻿
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Dashbard.aspx.cs" Inherits="CourseRegestrationProject.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -20,15 +22,20 @@
             display:flex;
             flex-direction: column;
             justify-content:space-between;
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+            transition: all 0.2s ease;
+            cursor: pointer;
         
         }
+        .course_lists:hover{
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            transform: scale(1.02,1.02);
+            transition: all 0.2s ease-out;
+        }
         .course_info{
-            padding-top:25px;
-            border-top: solid 1px #b4b4b4;
+            padding-top:52px;
+            border-top: solid 1px #d3d3d3;
             display:flex;
-            gap: 20px;
+            gap: 18px;
             flex-direction: column
         }
         .id_btn{
@@ -48,21 +55,38 @@
         button:hover{
             background-color:#efefef
         }
+        .container {
+            padding: 2rem;
+            padding-top: 2rem;
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+            gap: 2rem;
+
+        }
     </style>
-    <div style="height: 618px" class="main-content">
+    <div class="container">
+       <asp:Repeater ID="CourseRepeater" runat="server">
+           <ItemTemplate>
+    <div class="main-content">
  
         <div class="course_lists">
             <div class="id_btn">
-                <h1>CourseID</h1>
+                <h1><%# Eval("CourseCode") %></h1>
                 <button>Edit</button>
             </div>
-            <p style=" color: #414141">name</p>
+            <p style=" color: #555555"><%# Eval("CourseName") %></p>
             <div class="course_info" style=" color:#616161">
-                <p>Credits:</p>
-                <p>School Name:</p>
-                <p>Faculty Name:</p>
+                <p>Credits: <%# Eval("Credits") %></p>
+                <p>School Name: <%# Eval("SchoolName") %></p>
+                
             </div>
 
         </div>
     </div>
+               </ItemTemplate>
+           </asp:Repeater>
+    </div>
+
 </asp:Content>

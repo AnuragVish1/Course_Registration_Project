@@ -5,34 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\dashbard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:dashbard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\site1.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:site1.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\new_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:new_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\edit_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:edit_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\student_detail.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:student_detail.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\site1.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:site1.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,44 +14,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Student_detail.aspx",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Student_detail.aspx",
-              "RelativeDocumentMoniker": "Student_detail.aspx",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Student_detail.aspx",
-              "RelativeToolTip": "Student_detail.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-03-10T08:36:18.69Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Edit_course.aspx",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Edit_course.aspx",
-              "RelativeDocumentMoniker": "Edit_course.aspx",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Edit_course.aspx",
-              "RelativeToolTip": "Edit_course.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-03-10T08:35:11.557Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "New_course.aspx",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\New_course.aspx",
-              "RelativeDocumentMoniker": "New_course.aspx",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\New_course.aspx",
-              "RelativeToolTip": "New_course.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-03-10T08:34:20.492Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -90,56 +26,7 @@
               "RelativeToolTip": "Dashbard.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-03-10T08:22:52.402Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Site1.Master.cs",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Site1.Master.cs",
-              "RelativeDocumentMoniker": "Site1.Master.cs",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Site1.Master.cs",
-              "RelativeToolTip": "Site1.Master.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T08:17:57.09Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Site1.Master",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Site1.Master",
-              "RelativeDocumentMoniker": "Site1.Master",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Site1.Master",
-              "RelativeToolTip": "Site1.Master",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-03-10T08:15:38.827Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "packages.config",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\packages.config",
-              "RelativeDocumentMoniker": "packages.config",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\packages.config",
-              "RelativeToolTip": "packages.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-03-10T08:13:49.574Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Web.config",
-              "RelativeDocumentMoniker": "Web.config",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Web.config",
-              "RelativeToolTip": "Web.config",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-03-10T08:04:02.596Z",
+              "WhenOpened": "2025-03-10T18:53:20.864Z",
               "EditorCaption": ""
             }
           ]

@@ -21,20 +21,23 @@
             gap: 80px;
             
             text-decoration: none !important;
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
             font-family: sans-serif;
             font-size: medium;
+            background-color: #4d58d0;
+            
 
         }
 
         .link-buttons{
-            color:black;
+            color: white;
             text-decoration:none;
             padding: 10px;
             transition: all 0.3s ease;
             border-radius:5px
         }
         .link-buttons:hover{
+            color:black;
             background-color: #f4f4f4;
             transition: all 0.3s ease;
         }
@@ -44,7 +47,7 @@
 <body style="height: 673px">
     <form id="form1" runat="server">
         <div class="links">
-            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Dashbard.aspx" CssClass="link-buttons">Dashboard</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Dashboard.aspx" CssClass="link-buttons">Dashboard</asp:LinkButton>
             <asp:LinkButton ID="LinkButton2" PostBackUrl="~/New_course.aspx" CssClass="link-buttons" runat="server">New Course</asp:LinkButton>
             <asp:LinkButton ID="LinkButton3" PostBackUrl="~/Edit_course.aspx" CssClass="link-buttons" runat="server">Edit Course</asp:LinkButton>
             <asp:LinkButton ID="LinkButton4" PostBackUrl="~/Student_detail.aspx" CssClass="link-buttons" runat="server">Student Details</asp:LinkButton>
