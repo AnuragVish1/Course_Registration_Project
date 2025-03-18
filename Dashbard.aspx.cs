@@ -11,17 +11,19 @@ namespace CourseRegestrationProject
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\App_Data\\Database1.mdf;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 CourseData();
             }
+           
         }
 
         private void CourseData()
         {
-            string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\App_Data\\Database1.mdf;Integrated Security=True";
+            
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"
@@ -41,13 +43,12 @@ namespace CourseRegestrationProject
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-
                     CourseRepeater.DataSource = dt;
                     CourseRepeater.DataBind();
+                    Response.Write(dt.ToString());
                 }
                 catch (Exception ex)
                 {
-                    // Handle errors
                     Response.Write("Error: " + ex.Message);
                 }
             }
