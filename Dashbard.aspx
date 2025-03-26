@@ -45,7 +45,7 @@
             align-items: center;
         }
 
-            .id_btn > button {
+            .id_btn > a {
                 width: 5rem;
                 padding: 0.58rem;
                 border-radius: 5px;
@@ -53,9 +53,12 @@
                 border: solid 1.5px #bdbdbd;
                 background-color: #fff;
                 cursor: pointer;
+                text-align: center;
+                text-decoration:none;
+                color: black;
             }
 
-        button:hover {
+        a:hover {
             background-color: #efefef
         }
 
@@ -68,6 +71,11 @@
             grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
             gap: 2rem;
         }
+
+        .Edit_Btn
+        {
+            
+        }
     </style>
     <div class="container">
         <asp:Repeater ID="CourseRepeater" runat="server">
@@ -77,7 +85,7 @@
                     <div class="course_lists">
                         <div class="id_btn">
                             <h1><%# Eval("CourseCode") %></h1>
-                            <button>Edit</button>
+                            <a  href="Edit_course.aspx?id=<%# Eval("CourseID") %>">Edit</a>
                         </div>
                         <p style="color: #555555"><%# Eval("CourseName") %></p>
                         <div class="course_info" style="color: #616161">

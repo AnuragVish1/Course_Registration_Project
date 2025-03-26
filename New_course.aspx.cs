@@ -52,7 +52,7 @@ namespace CourseRegestrationProject
             dt.Columns.Add("ReadingMaterial", typeof(string));
             dt.Columns.Add("Activity", typeof(string));
 
-            dt.Columns.Add("ImportantDates", typeof(DateTime));
+            dt.Columns.Add("ImportantDates", typeof(string));
 
             ViewState["CoursePlanTable"] = dt;
             gvCoursePlan.DataSource = dt;
@@ -84,6 +84,7 @@ namespace CourseRegestrationProject
             for (int i = 0; i < gvCoursePlan.Rows.Count; i++)
             {
                 GridViewRow row = gvCoursePlan.Rows[i];
+                
 
                 if (i < dt.Rows.Count)
                 {
@@ -92,9 +93,7 @@ namespace CourseRegestrationProject
                     dt.Rows[i]["Subtopic"] = ((TextBox)row.FindControl("txtSubtopic")).Text;
                     dt.Rows[i]["ReadingMaterial"] = ((TextBox)row.FindControl("txtReadingMaterial")).Text;
                     dt.Rows[i]["Activity"] = ((TextBox)row.FindControl("txtActivity")).Text;
-                    DateTime importantDate;
-                    if (DateTime.TryParse(((TextBox)row.FindControl("txtImportantDates")).Text, out importantDate))
-                        dt.Rows[i]["ImportantDates"] = importantDate;
+                    dt.Rows[i]["ImportantDates"] = ((TextBox)row.FindControl("txtImportantDates")).Text;
 
                 }
             }
@@ -102,9 +101,9 @@ namespace CourseRegestrationProject
             DataRow dr = dt.NewRow();
             dr["SessionNumber"] = dt.Rows.Count + 1;
             dt.Rows.Add(dr);
-            ViewState["CoursePlanTable"] = dt;
             gvCoursePlan.DataSource = dt;
             gvCoursePlan.DataBind();
+            ViewState["CoursePlanTable"] = dt;
         }
 
         // Function for add new row to the course schedule table
@@ -130,9 +129,10 @@ namespace CourseRegestrationProject
 
             DataRow dr = dt.NewRow();
             dt.Rows.Add(dr);
-            ViewState["ScheduleTable"] = dt;
+            
             gvSchedule.DataSource = dt;
             gvSchedule.DataBind();
+            ViewState["ScheduleTable"] = dt;
         }
 
         // For on delete course plan row
@@ -521,11 +521,12 @@ namespace CourseRegestrationProject
                     SqlCommand command = new SqlCommand(query, conn);
                     command.Parameters.AddWithValue("@Topic", row["Topic"]);
                     command.Parameters.AddWithValue("@SessionNumber", row["SessionNumber"]);
-                    command.Parameters.AddWithValue("@Subtopic", row["Subtopic"] ?? DBNull.Value);
-                    command.Parameters.AddWithValue("@ReadingMaterials", row["ReadingMaterial"] ?? DBNull.Value);
-                    command.Parameters.AddWithValue("@Activity", row["Activity"] ?? DBNull.Value);
-                    command.Parameters.AddWithValue("@ImportantDates", row["ImportantDates"] ?? DBNull.Value);
+                    command.Parameters.AddWithValue("@Subtopic", row["Subtopic"]);
+                    command.Parameters.AddWithValue("@ReadingMaterials", row["ReadingMaterial"]);
+                    command.Parameters.AddWithValue("@Activity", row["Activity"]);
+                    command.Parameters.AddWithValue("@ImportantDates", row["ImportantDates"]);
                     command.Parameters.AddWithValue("@CourseId", courseID);
+
                     try
                     {
                         command.ExecuteNonQuery();

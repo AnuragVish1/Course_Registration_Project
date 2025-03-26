@@ -24,7 +24,7 @@
             box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
             font-family: sans-serif;
             font-size: medium;
-            background-color: #4d58d0;
+            background-color: #c23434;
             
 
         }
@@ -50,7 +50,7 @@
             <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Dashbard.aspx" CssClass="link-buttons" CausesValidation="false">Dashboard</asp:LinkButton>
             <asp:LinkButton ID="LinkButton2" PostBackUrl="~/New_course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">New Course</asp:LinkButton>
             <asp:LinkButton ID="LinkButton3" PostBackUrl="~/Edit_course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Edit Course</asp:LinkButton>
-            <asp:LinkButton ID="LinkButton4" PostBackUrl="~/Student_detail.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Student Details</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton4" PostBackUrl="~/Delete_Course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Delete Course</asp:LinkButton>
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 </asp:ContentPlaceHolder>

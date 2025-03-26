@@ -27,7 +27,7 @@ namespace CourseRegestrationProject
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"
-            SELECT c.id, c.couse_code as CourseCode, c.course_name as CourseName, c.credits as Credits,
+            SELECT c.id as CourseID, c.couse_code as CourseCode, c.course_name as CourseName, c.credits as Credits,
                    s.school_name AS SchoolName
             FROM courses c
             LEFT JOIN School_Course_Map scm ON c.id = scm.course_id

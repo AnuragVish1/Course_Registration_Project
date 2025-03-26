@@ -257,8 +257,8 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Important Dates">
                                     <ItemTemplate>
-                                        <asp:TextBox ID="txtImportantDates" runat="server" CssClass="form-control" TextMode="Date"
-                                            Text='<%# Eval("ImportantDates", "{0:yyyy-MM-dd}") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtImportantDates" runat="server" CssClass="form-control"
+                                            Text='<%# Eval("ImportantDates") %>'></asp:TextBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Actions">
