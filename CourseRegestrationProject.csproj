@@ -81,6 +81,7 @@
     <Content Include="New_course.aspx" />
     <Content Include="Edit_course.aspx" />
     <Content Include="Delete_Course.aspx" />
+    <Content Include="Overview.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +119,13 @@
     </Compile>
     <Compile Include="Delete_Course.aspx.designer.cs">
       <DependentUpon>Delete_Course.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Overview.aspx.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Overview.aspx.designer.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

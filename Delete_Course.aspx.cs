@@ -32,7 +32,7 @@ namespace CourseRegestrationProject
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     ddlCourse.DataSource = dt;
-                    Response.Write(dt);
+                    
                     ddlCourse.DataTextField = "course_name";
                     ddlCourse.DataValueField = "id";
                     ddlCourse.DataBind();
@@ -49,7 +49,7 @@ namespace CourseRegestrationProject
         protected void DeleteCourseBtn(object sender, EventArgs e)
         {
             // Get the course id
-            int courseId = ddlCourse.SelectedIndex + 1;
+            int courseId = Convert.ToInt32(ddlCourse.SelectedValue);
             // delete course plan
             DeleteCoursePlan(courseId);
             // delete school course
@@ -63,8 +63,50 @@ namespace CourseRegestrationProject
             // delete Room_Schedule Entry
             DeleteRoomSchedule(schedule_ids);
             // delete schedule entries
-
+            DeleteScheduleData(courseId);
             // delete course from course table
+            DeleteCourseData(courseId);
+            // redirect to dashboard
+            ClientScript.RegisterStartupScript(this.GetType(), "redirectScript",
+                "setTimeout(function() { window.location = '/Dashbard.aspx'; }, 1000);", true);
+        }
+
+        private void DeleteCourseData(int courseId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"delete from courses where id = @CourseId";
+                SqlCommand command = new SqlCommand(query,conn);
+                command.Parameters.AddWithValue("@CourseId",courseId);
+                try
+                {
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.ToString());
+                }
+            }
+        }
+
+        private void DeleteScheduleData(int courseId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"delete from schedule where course_id = @CourseId";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@CourseId", courseId);
+                try
+                {
+                    conn.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    Response.Write(e.ToString());
+                }
+            }
         }
 
         private void DeleteRoomSchedule(List<int> schedule_ids)
@@ -131,9 +173,10 @@ namespace CourseRegestrationProject
                     {
                         // Add each item to the list
                         ids.Add(Convert.ToInt32(reader["id"]));
-                        Response.Write(reader["id"]);
+                        
                     }
                 }
+                conn.Close();
             }
 
             return ids;
@@ -151,7 +194,7 @@ namespace CourseRegestrationProject
                 {
                     conn.Open();
                     command.ExecuteNonQuery();
-                    Response.Write("Course Student Relation delete");
+                  
                 }
                 catch (Exception ex)
                 {
@@ -171,7 +214,7 @@ namespace CourseRegestrationProject
                 {
                     conn.Open();
                     command.ExecuteNonQuery();
-                    Response.Write("Course School Relation delete");
+                   
                 }
                 catch (Exception ex)
                 {
@@ -191,7 +234,6 @@ namespace CourseRegestrationProject
                 {
                     con.Open();
                     command.ExecuteNonQuery();
-                    Response.Write("Course Plan Deleted Sucessfully");
                 }
                 catch (Exception e)
                 {

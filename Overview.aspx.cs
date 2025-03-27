@@ -1,0 +1,162 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace CourseRegestrationProject
+{
+    public partial class WebForm5 : System.Web.UI.Page
+    {
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\App_Data\\Database1.mdf;Integrated Security=True";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                int courseID = Convert.ToInt32(Request.QueryString["id"]);
+                LoadCourseDetails(courseID);
+                LoadSchoolDetails(courseID);
+                LoadCoursePlan(courseID);
+                LoadCourseSchedule(courseID);
+            }
+        }
+
+        private void LoadCourseSchedule(int courseID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"SELECT 
+    s.id, 
+    s.course_id, 
+    CASE s.schedule_weekday
+        WHEN 1 THEN 'Monday'
+        WHEN 2 THEN 'Tuesday'
+        WHEN 3 THEN 'Wednesday'
+        WHEN 4 THEN 'Thursday'
+        WHEN 5 THEN 'Friday'
+        WHEN 6 THEN 'Saturday'
+        WHEN 7 THEN 'Sunday'
+        ELSE ''
+    END AS schedule_weekday,  
+    s.start_time AS StartTime, 
+    s.end_time AS EndTime, 
+    r.Room_No as RoomNumber, 
+    f.faculty_name AS faculty_name
+FROM 
+    schedule AS s
+JOIN 
+    Room_Schedule_Map AS rs ON s.id = rs.schedule_id
+JOIN 
+    Room AS r ON r.id = rs.Room_No
+JOIN 
+    Faculty_Schedule_Map AS fs ON s.id = fs.schedule_id
+JOIN 
+    Faculty AS f ON f.id = fs.faculty_id
+WHERE 
+    s.course_id = @CourseId";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@CourseId", courseID);
+
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    gvSchedule.DataSource = dt;
+                    gvSchedule.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    //Response.Write(ex.ToString());
+                }
+            }
+        }
+
+        private void LoadCoursePlan(int courseID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"select * from course_plan where course_id = @CourseId";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@CourseId", courseID);
+
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    gvCoursePlan.DataSource = dt;
+                    gvCoursePlan.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.ToString());
+                }
+            }
+        }
+
+        private void LoadSchoolDetails(int courseID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"select school_name from school where id = (select school_id from School_Course_Map where course_id = @CourseId)";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@CourseId", courseID);
+
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    School.Text = dt.Rows[0]["school_name"].ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.ToString());
+                }
+            }
+        }
+
+        private void LoadCourseDetails(int courseID)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"select * from courses where id = @CourseId";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@CourseId", courseID);
+
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    txtCourseCode.Text = dt.Rows[0]["couse_code"].ToString();
+                    txtCourseName.Text = dt.Rows[0]["course_name"].ToString();
+                    txtCredits.Text = dt.Rows[0]["credits"].ToString();
+                    txtDescription.Text = dt.Rows[0]["description"].ToString();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.ToString());
+                }
+            }
+        }
+
+        protected void goDashboard(object sender, EventArgs e)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "redirectScript",
+                "setTimeout(function() { window.location = '/Dashbard.aspx'; }, 0);", true);
+        }
+
+        protected void goEditCourse(object sender, EventArgs e)
+        {
+            int courseID = Convert.ToInt32(Request.QueryString["id"]);
+            string url = $"/Edit_course.aspx?id={courseID}";
+            Response.Redirect(Page.ResolveClientUrl(url));
+        }
+    }
+}

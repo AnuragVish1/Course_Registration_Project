@@ -45,7 +45,7 @@
             align-items: center;
         }
 
-            .id_btn > a {
+            .id_btn > .edit_a {
                 width: 5rem;
                 padding: 0.58rem;
                 border-radius: 5px;
@@ -58,7 +58,7 @@
                 color: black;
             }
 
-        a:hover {
+        .edit_a:hover {
             background-color: #efefef
         }
 
@@ -71,21 +71,29 @@
             grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
             gap: 2rem;
         }
-
-        .Edit_Btn
+        .title_Link
         {
-            
+            text-decoration: none;
+            color:#000;
+            transition: all 0.3s ease;
         }
+        .title_Link:hover{
+            color:#f54141;
+            transition: all 0.3s ease;
+        }
+
+        
     </style>
     <div class="container">
         <asp:Repeater ID="CourseRepeater" runat="server">
             <ItemTemplate>
                 <div class="main-content">
-
+                    
                     <div class="course_lists">
+                        
                         <div class="id_btn">
-                            <h1><%# Eval("CourseCode") %></h1>
-                            <a  href="Edit_course.aspx?id=<%# Eval("CourseID") %>">Edit</a>
+                            <a class="title_Link" href="Overview.aspx?id=<%# Eval("CourseID") %>"><h1><%# Eval("CourseCode") %></h1></a>
+                            <a  class="edit_a" href="Edit_course.aspx?id=<%# Eval("CourseID") %>">Edit</a>
                         </div>
                         <p style="color: #555555"><%# Eval("CourseName") %></p>
                         <div class="course_info" style="color: #616161">
@@ -93,8 +101,9 @@
                             <p>School Name: <%# Eval("SchoolName") %></p>
                             
                         </div>
-
+                        
                     </div>
+                        
                 </div>
             </ItemTemplate>
         </asp:Repeater>
