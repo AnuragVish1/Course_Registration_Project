@@ -7,7 +7,7 @@
         height: 100%;
         width: 100%;
         padding: 20px;
-        font-family: sans-serif;
+        font-family: "Inter";
     }
 
     .page-title {
@@ -19,10 +19,11 @@
 
     .form-container {
         background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-bottom: 30px;
+border-radius: 8px;
+box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+padding: 20px;
+border: 1px solid #e3dbdb;
+margin-bottom: 30px;
     }
 
     .form-group {
@@ -50,7 +51,7 @@
     }
 
     .section-title {
-        color: #007bff;
+        color: #000;
         margin: 25px 0 15px 0;
         padding-bottom: 15px;
         border-bottom: 1px solid #eee;
@@ -95,6 +96,7 @@
     .dynamic-table {
         width: 100%;
         border-radius: 10px;
+        
     }
 
     .delete-btn {
@@ -119,10 +121,13 @@
         font-weight: 600;
         color: #495057;
         border-radius: 10px;
+        
+       
     }
 
     .dynamic-table td {
         padding: 12px;
+
     }
 
     .table-actions {

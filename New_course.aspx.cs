@@ -221,7 +221,7 @@ namespace CourseRegestrationProject
                             int rowIndex = row.RowIndex;
                             string currentValue = "";
 
-                            // Get the saved value from the DataTable for this row if it exists
+                            // Get the saved value from the DataTable if it exists
                             if (rowIndex < scheduleDt.Rows.Count &&
                                 scheduleDt.Rows[rowIndex]["FacultyMember"] != DBNull.Value)
                             {

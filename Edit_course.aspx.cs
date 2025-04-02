@@ -394,10 +394,10 @@ namespace CourseRegestrationProject
 
                 if (i < dt.Rows.Count)
                 {
-                    dt.Rows[i]["schedule_weekday"] = ((DropDownList)row.FindControl("ddlWeekday")).SelectedValue;
-                    dt.Rows[i]["start_time"] = ((TextBox)row.FindControl("txtStartTime")).Text;
-                    dt.Rows[i]["end_time"] = ((TextBox)row.FindControl("txtEndTime")).Text;
-                    dt.Rows[i]["[Room No.]"] = ((DropDownList)row.FindControl("ddlRoomNumber")).SelectedValue;
+                    dt.Rows[i]["Weekday"] = ((DropDownList)row.FindControl("ddlWeekday")).SelectedValue;
+                    dt.Rows[i]["StartTime"] = ((TextBox)row.FindControl("txtStartTime")).Text;
+                    dt.Rows[i]["EndTime"] = ((TextBox)row.FindControl("txtEndTime")).Text;
+                    dt.Rows[i]["RoomNumber"] = ((DropDownList)row.FindControl("ddlRoomNumber")).SelectedValue;
                     dt.Rows[i]["FacultyMember"] = ((DropDownList)row.FindControl("ddlFacultyMember")).SelectedValue;
 
                 }
@@ -437,6 +437,7 @@ namespace CourseRegestrationProject
             gvCoursePlan.DataSource = dt;
             gvCoursePlan.DataBind();
             ViewState["CoursePlanTable"] = dt;
+
         }
 
         private void LoadSchoolList(int courseID)
@@ -541,6 +542,25 @@ namespace CourseRegestrationProject
         private void EditCoursePlan(int courseID)
         {
             DataTable dt = ViewState["CoursePlanTable"] as DataTable;
+            for (int i = 0; i < gvCoursePlan.Rows.Count; i++)
+            {
+                GridViewRow row = gvCoursePlan.Rows[i];
+
+                if (i < dt.Rows.Count)
+                {
+                    dt.Rows[i]["session_number"] = ((TextBox)row.FindControl("txtSessionNumber")).Text;
+                    dt.Rows[i]["Topic"] = ((TextBox)row.FindControl("txtTopic")).Text;
+                    dt.Rows[i]["Subtopic"] = ((TextBox)row.FindControl("txtSubtopic")).Text;
+                    dt.Rows[i]["reading_materials"] = ((TextBox)row.FindControl("txtReadingMaterial")).Text;
+                    dt.Rows[i]["Activity"] = ((TextBox)row.FindControl("txtActivity")).Text;
+                    dt.Rows[i]["Important_dates"] = ((TextBox)row.FindControl("txtImportantDates")).Text;
+
+                }
+            }
+
+            gvCoursePlan.DataSource = dt;
+            gvCoursePlan.DataBind();
+            ViewState["CoursePlanTable"] = dt;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
