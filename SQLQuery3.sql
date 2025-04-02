@@ -1,0 +1,1 @@
+﻿ALTER TABLE semester drop column Program;

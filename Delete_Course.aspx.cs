@@ -6,14 +6,20 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Hosting;
 
 namespace CourseRegestrationProject
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\App_Data\\Database1.mdf;Integrated Security=True";
+        string connectionString = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "(LocalDB)\\MSSQLLocalDB";
+            builder.AttachDBFilename = HostingEnvironment.MapPath("~\\App_Data\\Database1.mdf");
+            builder.IntegratedSecurity = true;
+            connectionString = builder.ToString();
             if (!IsPostBack)
             {
                 LoadschoolData();

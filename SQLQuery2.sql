@@ -1,1 +1,1 @@
-﻿
+﻿ALTER table semester ALTER column Sem_Name VARCHAR(50);

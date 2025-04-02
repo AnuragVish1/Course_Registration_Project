@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -12,9 +13,16 @@ namespace CourseRegestrationProject
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\App_Data\\Database1.mdf;Integrated Security=True";
+        
+        
+        string connectionString = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "(LocalDB)\\MSSQLLocalDB";
+            builder.AttachDBFilename = HostingEnvironment.MapPath("~\\App_Data\\Database1.mdf");
+            builder.IntegratedSecurity = true;
+            connectionString = builder.ToString();
             if (!IsPostBack)
             {
                 LoadAllCourse();
