@@ -108,7 +108,19 @@
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
         }
-
+         .form-select {
+     width: 20%;
+     padding: 8px 12px;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+     font-size: 14px;
+     background-color: white;
+     margin-right:1rem;
+     position: absolute;
+     left:0;
+     margin-left: 2rem;
+     
+ }
 
         
     </style>
@@ -116,6 +128,11 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
     <div class="inputContainer">
+           
+<asp:DropDownList ID="ddlSemester" runat="server" CssClass="form-select" OnSelectedIndexChanged="LoadeSemCourse" AutoPostBack="true">
+    <asp:ListItem Value="" Text="-- Select Semester --" Selected="True"></asp:ListItem>
+</asp:DropDownList>
+  
         <asp:TextBox ID="txtSearch" runat="server" CssClass="inputField" placeholder="Search By..." OnTextChanged="liveSearching" AutoPostBack="true"></asp:TextBox>
 
         
