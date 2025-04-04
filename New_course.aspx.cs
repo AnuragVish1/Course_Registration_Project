@@ -44,6 +44,8 @@ namespace CourseRegestrationProject
             }
         }
 
+        
+
 
         // Initializing the Course plan gird
         private void InitCoursePlanGrid()
@@ -342,6 +344,21 @@ namespace CourseRegestrationProject
             int course_credit = Convert.ToInt32(txtCredits.Text.Trim());
             string description = txtDescription.Text;
             int School_Id = Convert.ToInt32(ddlSchool.SelectedValue);
+            
+
+            // check if the course code or course name already exists in the database
+            if (IsExisting(course_code, course_name) != "")
+            {
+                string errorMessage = IsExisting(course_code, course_name);
+                string message = $"Course with same {errorMessage} already exists";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowModal",
+                $"showModal('{message}');", true);
+
+                return;
+            }
+
+            // Check if there is no clash when there is Schedule of same day of same start and end time and of same room
+
 
             // saving to the courses table
 
@@ -368,6 +385,43 @@ namespace CourseRegestrationProject
 
         }
 
+
+        private string IsExisting(string course_code, string course_name)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"SELECT 
+                        CASE 
+                            WHEN EXISTS(SELECT 1 FROM courses WHERE couse_code = @CourseCode) 
+                            AND EXISTS(SELECT 1 FROM courses WHERE course_name = @CourseName)
+                            
+                            THEN 'code and name' 
+                            WHEN EXISTS(SELECT 1 FROM courses WHERE couse_code = @CourseCode)
+                            
+                            THEN 'Code' 
+                            WHEN EXISTS(SELECT 1 FROM courses WHERE course_name = @CourseName)
+                            
+                            THEN 'Name' 
+                            ELSE '' 
+                        END";
+                SqlCommand command = new SqlCommand(query, conn);
+                command.Parameters.AddWithValue("@CourseCode", course_code);
+                command.Parameters.AddWithValue("@CourseName", course_name);
+                
+                try
+                {
+                    conn.Open();
+                    return command.ExecuteScalar().ToString();
+                }
+
+                catch(Exception ex) 
+                {
+                    Response.Write(ex.ToString());  
+                    return "Course Code and Course Name";
+                }
+            }
+        }
+
         private void SaveSchedulePlan(int courseID)
         {
             DataTable dt = ViewState["ScheduleTable"] as DataTable;
@@ -392,14 +446,16 @@ namespace CourseRegestrationProject
                             System.Diagnostics.Debug.WriteLine("Skipping empty row in schedule");
                             continue;
                         }
+                        // TODO: check for clash in time or faculty name or room
 
-                        string query = @"INSERT INTO schedule (course_id, schedule_weekday, start_time, end_time, [Room No.]) 
-                                VALUES (@CourseId, @schedule_weekday, @StartTime, @EndTime, @RoomNo);
+                        string query = @"INSERT INTO schedule (course_id, schedule_weekday, start_time, end_time, [Room No.], semester) 
+                                VALUES (@CourseId, @schedule_weekday, @StartTime, @EndTime, @RoomNo, @semester);
                                 SELECT SCOPE_IDENTITY();";
                         using (SqlCommand command = new SqlCommand(query, conn))
                         {
                             command.Parameters.AddWithValue("@CourseId", courseID);
                             command.Parameters.AddWithValue("@schedule_weekday", row["Weekday"]);
+                            
 
                             // Handling time parsing
                             TimeSpan startTime, endTime;
@@ -576,7 +632,7 @@ namespace CourseRegestrationProject
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 int courseId = 0;
-                string query = @"INSERT INTO courses (couse_code, course_name, credits, description) 
+                string query = @"INSERT INTO courses (couse_code, course_name, credits, description)
                          VALUES (@CourseCode, @CourseName, @Credits, @Description);
                          SELECT SCOPE_IDENTITY();";
                 SqlCommand command = new SqlCommand(query, conn);
@@ -584,6 +640,7 @@ namespace CourseRegestrationProject
                 command.Parameters.AddWithValue("@CourseName", course_name);
                 command.Parameters.AddWithValue("@Credits", course_credit);
                 command.Parameters.AddWithValue("@Description", description);
+                
                 try
                 {
                     

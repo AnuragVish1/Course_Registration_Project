@@ -12,14 +12,14 @@
 
         .form-select {
             margin-top: 2rem;
-            border-radius: 8px;
             
+            width: 20%;
+padding: 8px 12px;
+border: 1px solid #ddd;
+border-radius: 4px;
+font-size: 14px;
+background-color: white;
             
-            margin-bottom: 2rem;
-            outline:none;
-            border: 1.8px solid #eae7e7;
-            padding-top: 10px;
-            padding-bottom: 10px;
         }
 
         .form-label {
@@ -28,7 +28,7 @@
         }
 
         .btn-primary {
-            margin-top: 1rem;
+            margin-top: 2rem;
             background-color: #f74b4b;
             color: white;
             border: none;

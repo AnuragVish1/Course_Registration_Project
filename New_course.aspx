@@ -1,6 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="New_course.aspx.cs" Inherits="CourseRegestrationProject.WebForm2" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+        function showModal(message) {
+            if (message) {
+                document.getElementById('modalMessage').innerText = message;
+            }
+            document.getElementById('courseExistsModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            const popup = document.getElementById('courseExistsModal').querySelector('.modal-dialog');
+            popup.classList.add('model-closing');
+            setTimeout(() => {
+
+                document.getElementById('courseExistsModal').style.display = 'none';
+
+            }, 200);
+
+        }
+    </script>
     <style>
         .main-content {
             height: 100%;
@@ -149,7 +168,6 @@
             border-radius: 4px;
             font-size: 14px;
             background-color: white;
-
         }
 
         .text-danger {
@@ -160,13 +178,132 @@
             content: " *";
             color: #dc3545;
         }
-        .form-option
-        {
-            padding:10px;
-            border-radius:2px;
+
+        .form-option {
+            padding: 10px;
+            border-radius: 2px;
+        }
+
+        .modal-backdrop {
+            font-family: 'Inter';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: 0.8s cubic-bezier(.01,.98,.05,.99) 0s 1 changeColor forwards;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1050;
+        }
+
+        @keyframes changeColor {
+            0% {
+                background-color: #fff;
+            }
+
+            100% {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .modal-dialog {
+            width: 100%;
+            max-width: 500px;
+            animation: 0.8s cubic-bezier(.01,.98,.05,.99) 0s 1 entrance forwards;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            padding: 15px;
+            border-bottom: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 15px;
+        }
+
+        .modal-footer {
+            padding: 15px;
+            border-top: 1px solid #e5e5e5;
+            text-align: right;
+        }
+
+        .model-btn {
+            background-color: #d54e4e;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @keyframes entrance {
+            0% {
+                transform: scale(0.4,0.4);
+            }
+
+            100% {
+                transform: scale(1,1);
+            }
+        }
+
+
+
+        @keyframes exit {
+            0% {
+                transform: scale(1,1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.5,0.5);
+                opacity: 0;
+            }
+        }
+
+        .model-closing {
+            animation: 0.4s cubic-bezier(.01,.98,.05,.99) 0s 1 exit forwards;
         }
     </style>
-
+    <div id="courseExistsModal" class="modal-backdrop" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Course Already Exists</h4>
+                    <button type="button" class="close-btn" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalMessage">A course with this code or name already exists in the database.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="model-btn" onclick="closeModal()">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="main-content">
 
         <div class="form-container">
@@ -204,6 +341,7 @@
                 <asp:RequiredFieldValidator ID="rfvSchool" runat="server" ControlToValidate="ddlSchool"
                     ErrorMessage="School is required" CssClass="text-danger" Display="Dynamic" InitialValue=""></asp:RequiredFieldValidator>
             </div>
+           
 
             <div class="form-group">
                 <label for="txtDescription" class="form-label">Description</label>
@@ -352,7 +490,7 @@
         </asp:UpdatePanel>
         <div class="btn-container">
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn-cancel" CausesValidation="false" />
-            <asp:Button ID="btnSave" runat="server" Text="Save Course" CssClass="btn-primary" OnClick="SaveCourseClickEvent"/>
+            <asp:Button ID="btnSave" runat="server" Text="Save Course" CssClass="btn-primary" OnClick="SaveCourseClickEvent" />
         </div>
     </div>
 </asp:Content>

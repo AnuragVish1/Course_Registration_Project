@@ -200,7 +200,13 @@ margin-bottom: 30px;
             </asp:Label>
 
         </div>
+<div class="form-group">
+    <label for="LabelddlSemester" class="form-label required">Semester</label>
+    <asp:Label ID="txtSemester" runat="server">
+        <%# Eval("Semester") %>
+    </asp:Label>
 
+</div>
         <div class="form-group">
             <label for="txtDescription" class="form-label">Description</label>
 
