@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
 using System.Web.Hosting;
 using System.Web.UI;
@@ -25,7 +27,9 @@ namespace CourseRegestrationProject
             connectionString = builder.ToString();
             if (!IsPostBack)
             {
+                LoadSemester();
                 LoadAllCourse();
+
             }
            
         }
@@ -35,7 +39,10 @@ namespace CourseRegestrationProject
         {
             
         }
-
+        protected void LoadeSemCourse(object sender, EventArgs e)
+        {
+            LoadAllCourse();
+        }
         protected void liveSearching(object sender, EventArgs e)
         {
            string searchTerm = txtSearch.Text;
@@ -54,12 +61,13 @@ namespace CourseRegestrationProject
             LEFT JOIN School_Course_Map scm ON c.id = scm.course_id
             LEFT JOIN School s ON scm.School_id = s.id
             WHERE c.course_name LIKE @SearchTerm OR c.couse_code LIKE @SearchTerm
+            And c.id IN (select course_id from Course_Semester_Map where semester_id = @semester_id)
 
             ";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%");
-
+                command.Parameters.AddWithValue("@semester_id",ddlSemester.SelectedValue);
                 try
                 {
                     connection.Open();
@@ -76,6 +84,31 @@ namespace CourseRegestrationProject
                 }
             }
         }
+        
+        private void LoadSemester()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string queary = @"SELECT id,Sem_Name FROM Semester";
+                SqlCommand command = new SqlCommand(queary, conn);
+                try
+                {
+                    conn.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    ddlSemester.DataSource = dt;
+                    Response.Write(dt);
+                    ddlSemester.DataTextField = "Sem_Name";
+                    ddlSemester.DataValueField = "id";
+                    ddlSemester.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+            }
+        }
         private void LoadAllCourse()
         {
 
@@ -87,12 +120,13 @@ namespace CourseRegestrationProject
             FROM courses c
             LEFT JOIN School_Course_Map scm ON c.id = scm.course_id
             LEFT JOIN School s ON scm.School_id = s.id
+            where c.id IN (select course_id from Course_Semester_Map where semester_id = @semester_id)
             
 
             ";
 
                 SqlCommand command = new SqlCommand(query, connection);
-                
+                command.Parameters.AddWithValue("@semester_id", ddlSemester.SelectedValue);
 
                 try
                 {
