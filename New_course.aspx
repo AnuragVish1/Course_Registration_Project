@@ -163,11 +163,20 @@
 
         .form-select {
             width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            background-color: white;
+padding: 10px 12px;
+height: 2.6rem;
+border: 1px solid #ddd;
+border-radius: 6px;
+font-size: 16px;
+background-color: white;
+-webkit-appearance: none;
+appearance: none;
+-moz-appearance: none;
+background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
+background-repeat: no-repeat;
+background-size: 12px 12px;
+background-position: calc(100% - 12px);
+margin-top: 1rem;
         }
 
         .text-danger {

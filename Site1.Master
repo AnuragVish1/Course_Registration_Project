@@ -52,8 +52,8 @@
         <div class="links">
             <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Dashbard.aspx" CssClass="link-buttons" CausesValidation="false">Dashboard</asp:LinkButton>
             <asp:LinkButton ID="LinkButton2" PostBackUrl="~/New_course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">New Course</asp:LinkButton>
-            <asp:LinkButton ID="LinkButton3" PostBackUrl="~/Edit_course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Edit Course</asp:LinkButton>
-            <asp:LinkButton ID="LinkButton4" PostBackUrl="~/Delete_Course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Delete Course</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton3" PostBackUrl="~/Add_Course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Add Course</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton4" PostBackUrl="~/Remove_Course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Remove Course</asp:LinkButton>
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 </asp:ContentPlaceHolder>

@@ -89,11 +89,11 @@ namespace CourseRegestrationProject
             // Get the course id
             int courseId = Convert.ToInt32(ddlCourse.SelectedValue);
             // delete course plan
-            DeleteCoursePlan(courseId);
+            //DeleteCoursePlan(courseId);
             // delete school course
-            DeleteSchoolCourseMap(courseId);
+            //DeleteSchoolCourseMap(courseId);
             // delete Course_Student_Map Entry
-            DeleteCourseStudentMap(courseId);
+            //DeleteCourseStudentMap(courseId);
             // get schedule ids for the course
             List<int> schedule_ids = ScheduleIds(courseId);
             // delete Faculty_Schedule_Map Entry

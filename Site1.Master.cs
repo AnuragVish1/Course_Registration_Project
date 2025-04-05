@@ -15,6 +15,7 @@ namespace CourseRegestrationProject
             string url = HttpContext.Current.Request.Url.AbsoluteUri;
             string pageName = System.IO.Path.GetFileName(url);
             
+            
 
             if (pageName == "Dashbard.aspx")
             {
@@ -26,12 +27,12 @@ namespace CourseRegestrationProject
                 LinkButton2.Attributes.CssStyle.Add("background-color", "white");
                 LinkButton2.Attributes.CssStyle.Add("color", "Black");
             }
-            else if (pageName == "Edit_course.aspx")
+            else if (pageName == "Add_Course.aspx")
             {
                 LinkButton3.Attributes.CssStyle.Add("background-color", "white");
                 LinkButton3.Attributes.CssStyle.Add("color", "Black");
             }
-            else if (pageName == "Student_detail.aspx")
+            else if (pageName == "Remove_Course.aspx")
             {
                 LinkButton4.Attributes.CssStyle.Add("background-color", "white");
                 LinkButton4.Attributes.CssStyle.Add("color", "Black");

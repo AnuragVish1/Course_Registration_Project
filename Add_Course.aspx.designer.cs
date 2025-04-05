@@ -11,7 +11,7 @@ namespace CourseRegestrationProject
 {
 
 
-    public partial class WebForm1
+    public partial class WebForm6
     {
 
         /// <summary>
@@ -51,12 +51,21 @@ namespace CourseRegestrationProject
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
-        /// CourseRepeater control.
+        /// updatePanel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater CourseRepeater;
+        protected global::System.Web.UI.UpdatePanel updatePanel2;
+
+        /// <summary>
+        /// gvAvailableCourses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAvailableCourses;
     }
 }

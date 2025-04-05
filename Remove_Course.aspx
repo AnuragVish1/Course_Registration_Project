@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Delete_Course.aspx.cs" Inherits="CourseRegestrationProject.WebForm4" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Remove_Course.aspx.cs" Inherits="CourseRegestrationProject.WebForm4" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         .container {
             height: 100vh;
-            width: 100vw;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,42 +16,53 @@
             align-items: center;
             flex-direction: column;
             font-family: 'Inter';
-            width: 25rem;
+            width: 32rem;
             border-radius: 8px;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
             padding: 2rem;
-            border: 1px solid #f3f1f1;
+            border: 1px solid #e3dbdb;
         }
 
         .form-select {
-            margin-top: 0.5rem;
             width: 100%;
-            padding: 8px 12px;
+            padding: 10px 12px;
+            height: 2.6rem;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
+            border-radius: 6px;
+            font-size: 16px;
             background-color: white;
+            -webkit-appearance: none;
+            appearance: none;
+            -moz-appearance: none;
+            background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+            background-position: calc(100% - 12px);
+            margin-top: 1rem;
         }
 
         .form-label {
             font-size: 2rem;
             font-weight: 600;
-            text-align:center;
+            text-align: center;
             width: 100%;
-            padding-bottom: 0.72rem;
+            padding-bottom: 1rem;
             border-bottom: 2px solid #eeeeee;
+            margin-bottom: 1rem;
         }
 
         .btn-primary {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             background-color: #f74b4b;
             color: white;
             border: none;
             padding: 10px 16px;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: medium;
             width: 100%;
+            font-family: 'Inter';
         }
 
         .text-danger {
@@ -60,7 +71,8 @@
 
         .form-label_box {
             text-align: left;
-            font-size: 15px;
+            font-size: 18px;
+            
         }
 
         .labelContainer {
@@ -72,7 +84,7 @@
     <div class="container">
 
         <div class="main-content">
-            <label for="ddlCourse" class="form-label">Delete Course</label>
+            <label for="ddlCourse" class="form-label">Remove Course</label>
             <div class="labelContainer">
 
                 <label for="ddlCourse" class="form-label_box">Course Name</label>
@@ -90,7 +102,7 @@
             <asp:RequiredFieldValidator ID="rfvSchool" runat="server" ControlToValidate="ddlCourse"
                 ErrorMessage="Please Select Course" CssClass="text-danger" Display="Dynamic" InitialValue=""></asp:RequiredFieldValidator>
 
-            <asp:Button ID="btnSave" runat="server" Text="Delete Course" CssClass="btn-primary" OnClick="DeleteCourseBtn" />
+            <asp:Button ID="btnSave" runat="server" Text="Confirm" CssClass="btn-primary" OnClick="DeleteCourseBtn" />
         </div>
     </div>
 </asp:Content>

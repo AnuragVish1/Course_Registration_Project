@@ -35,10 +35,6 @@ namespace CourseRegestrationProject
         }
 
         // Searching and displaying the courses based on the search data
-        protected void SearchForCourse(object sender, EventArgs e)
-        {
-            
-        }
         protected void LoadeSemCourse(object sender, EventArgs e)
         {
             LoadAllCourse();
@@ -46,6 +42,11 @@ namespace CourseRegestrationProject
         protected void liveSearching(object sender, EventArgs e)
         {
            string searchTerm = txtSearch.Text;
+            if (searchTerm == "")
+            {
+                LoadAllCourse();
+                return;
+            }
             System.Diagnostics.Debug.WriteLine(searchTerm);
             SearchCourses(searchTerm);
         }
