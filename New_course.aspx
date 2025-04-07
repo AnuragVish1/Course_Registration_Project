@@ -58,17 +58,68 @@
         .form-control {
             width: 100%;
             padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 14px;
             max-width: 100%;
             min-width: 100%;
+            border: 1px solid #ddd;
+            height: 2.4rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-            .form-control:focus {
-                border-color: #007bff;
-                outline: none;
+        .dynamic-table {
+            width: 100%;
+            border: none;
+            border-collapse: collapse;
+        }
+
+            .dynamic-table th {
+                padding: 1rem;
+                text-align: left;
+                font-weight: 600;
+                border: none;
+                border-bottom: 1px solid #eee;
             }
+
+            .dynamic-table tr {
+                border: none;
+                transition: all 0.3s ease;
+            }
+
+            .dynamic-table td {
+                padding: 0.8rem;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .dynamic-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .dynamic-table th:last-child {
+                text-align: center;
+            }
+
+            .dynamic-table .action-column {
+                width: 12%;
+                text-align: center;
+            }
+
+            .dynamic-table tr:hover {
+                background-color: #f6f6f6;
+                transition: all 0.3s ease;
+            }
+
+
+        .form-control:focus {
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            outline: none;
+        }
 
         .section-title {
             color: #000;
@@ -113,10 +164,7 @@
             overflow-x: auto;
         }
 
-        .dynamic-table {
-            width: 100%;
-            border-radius: 10px;
-        }
+
 
         .delete-btn {
             text-decoration: none;
@@ -132,19 +180,6 @@
                 transform: scale(0.8, 0.8);
                 transition: all 0.3s ease;
             }
-
-        .dynamic-table th {
-            background-color: #fafafa;
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-            color: #495057;
-            border-radius: 10px;
-        }
-
-        .dynamic-table td {
-            padding: 12px;
-        }
 
         .table-actions {
             display: flex;
@@ -165,20 +200,20 @@
 
         .form-select {
             width: 100%;
-padding: 10px 12px;
-height: 2.6rem;
-border: 1px solid #ddd;
-border-radius: 6px;
-font-size: 16px;
-background-color: white;
--webkit-appearance: none;
-appearance: none;
--moz-appearance: none;
-background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
-background-repeat: no-repeat;
-background-size: 12px 12px;
-background-position: calc(100% - 12px);
-margin-top: 1rem;
+            padding: 10px 12px;
+            height: 2.4rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: white;
+            -webkit-appearance: none;
+            appearance: none;
+            -moz-appearance: none;
+            background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+            background-position: calc(100% - 12px);
+            
         }
 
         .text-danger {
@@ -298,6 +333,21 @@ margin-top: 1rem;
         .model-closing {
             animation: 0.4s cubic-bezier(.01,.98,.05,.99) 0s 1 exit forwards;
         }
+
+        .no-session-message {
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        .course-table {
+            margin-top: 1rem;
+            background-color: #fdfdfd;
+            border-radius: 8px;
+            border: 1px solid #e3dbdb;
+            padding: 1px;
+        }
     </style>
     <div id="courseExistsModal" class="modal-backdrop" style="display: none;">
         <div class="modal-dialog">
@@ -352,7 +402,7 @@ margin-top: 1rem;
                 <asp:RequiredFieldValidator ID="rfvSchool" runat="server" ControlToValidate="ddlSchool"
                     ErrorMessage="School is required" CssClass="text-danger" Display="Dynamic" InitialValue=""></asp:RequiredFieldValidator>
             </div>
-           
+
 
             <div class="form-group">
                 <label for="txtDescription" class="form-label">Description</label>
@@ -372,7 +422,7 @@ margin-top: 1rem;
                         <asp:Button ID="btnAddCoursePlanRow" runat="server" Text="+ Add Session" CssClass="btn-add-row" CausesValidation="false" OnClick="AddCoursePlanBtn_Click" />
                     </div>
 
-                    <div class="table-container">
+                    <div class="course-table">
                         <asp:GridView ID="gvCoursePlan" runat="server" CssClass="dynamic-table" AutoGenerateColumns="false" OnRowDeleting="GvCoursePlan_Delete">
                             <Columns>
                                 <asp:TemplateField HeaderText="Session Number">
@@ -420,82 +470,11 @@ margin-top: 1rem;
                                 </asp:TemplateField>
                             </Columns>
                             <EmptyDataTemplate>
-                                <div class="text-center">No sessions added yet. Click "Add Session" to create course plan.</div>
+                                <div class="no-session-message">No sessions added yet. Click "Add Session" to create course plan.</div>
                             </EmptyDataTemplate>
                         </asp:GridView>
                     </div>
 
-                </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
-
-        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-            <ContentTemplate>
-                <div class="form-container">
-                    <h3 class="section-title">Course Schedule</h3>
-                    <p>Add schedule details for the course.</p>
-
-                    <div class="table-actions">
-                        <asp:Button ID="btnAddScheduleRow" runat="server" Text="+ Add Schedule" CssClass="btn-add-row" CausesValidation="false" OnClick="AddCourseScheduleBtn_Click" />
-                    </div>
-
-                    <div class="table-container">
-                        <asp:GridView ID="gvSchedule" runat="server" CssClass="dynamic-table" AutoGenerateColumns="false" OnRowDeleting="GvSchedule_Delete" OnDataBound="gvSchedule_DataBound">
-                            <Columns>
-                                <asp:TemplateField HeaderText="Weekday">
-                                    <ItemTemplate>
-                                        <asp:DropDownList ID="ddlWeekday" runat="server" CssClass="form-select"
-                                            SelectedValue='<%# Eval("Weekday") %>'>
-                                            <asp:ListItem Value="" Text="-- Select Day --" Selected="True"></asp:ListItem>
-                                            <asp:ListItem Value="1" Text="Monday"></asp:ListItem>
-                                            <asp:ListItem Value="2" Text="Tuesday"></asp:ListItem>
-                                            <asp:ListItem Value="3" Text="Wednesday"></asp:ListItem>
-                                            <asp:ListItem Value="4" Text="Thursday"></asp:ListItem>
-                                            <asp:ListItem Value="5" Text="Friday"></asp:ListItem>
-                                            <asp:ListItem Value="6" Text="Saturday"></asp:ListItem>
-                                            <asp:ListItem Value="7" Text="Sunday"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Start Time">
-                                    <ItemTemplate>
-                                        <asp:TextBox ID="txtStartTime" runat="server" CssClass="form-control" TextMode="Time"
-                                            Text='<%# Eval("StartTime") %>'></asp:TextBox>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="End Time">
-                                    <ItemTemplate>
-                                        <asp:TextBox ID="txtEndTime" runat="server" CssClass="form-control" TextMode="Time"
-                                            Text='<%# Eval("EndTime") %>'></asp:TextBox>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Room Number">
-                                    <ItemTemplate>
-                                        <asp:DropDownList ID="ddlRoomNumber" runat="server" CssClass="form-select">
-                                            <asp:ListItem Value="" Text="-- Select Room --" Selected="True"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Faculty Member">
-                                    <ItemTemplate>
-                                        <asp:DropDownList ID="ddlFacultyMember" runat="server" CssClass="form-select">
-                                            <asp:ListItem Value="" CssClass="form-option" Text="-- Select Faculty --" Selected="True"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Actions">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="lnkDeleteSchedule" runat="server" Text="Delete" CssClass="delete-btn" CommandName="Delete"
-                                            CommandArgument='<%# Container.DataItemIndex %>' OnClientClick="return confirm('Are you sure you want to delete this schedule?');"
-                                            CausesValidation="false"></asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                            <EmptyDataTemplate>
-                                <div class="text-center">No schedules added yet. Click "Add Schedule" to create course schedule.</div>
-                            </EmptyDataTemplate>
-                        </asp:GridView>
-                    </div>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>

@@ -28,18 +28,12 @@ namespace CourseRegestrationProject
             {
                 LoadSchools();
                 InitCoursePlanGrid();
-                InitScheduleGrid();
-                InitRoomNumber();
             }
             else
             {
                 if (ViewState["CoursePlanTable"] == null)
                 {
                     InitCoursePlanGrid();
-                }
-                if (ViewState["ScheduleTable"] == null)
-                {
-                    InitScheduleGrid();
                 }
             }
         }
@@ -67,21 +61,6 @@ namespace CourseRegestrationProject
             gvCoursePlan.DataBind();
         }
 
-        // Initializing the Course Schedule gird
-
-        private void InitScheduleGrid()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Weekday", typeof(string));
-            dt.Columns.Add("StartTime", typeof(string));
-            dt.Columns.Add("EndTime", typeof(string));
-            dt.Columns.Add("RoomNumber", typeof(string));
-            dt.Columns.Add("FacultyMember", typeof(string));
-
-            ViewState["ScheduleTable"] = dt;
-            gvSchedule.DataSource = dt;
-            gvSchedule.DataBind();
-        }
 
         //Function for adding new row to the course plan table
         protected void AddCoursePlanBtn_Click(object sender, EventArgs e)
@@ -114,34 +93,6 @@ namespace CourseRegestrationProject
             ViewState["CoursePlanTable"] = dt;
         }
 
-        // Function for add new row to the course schedule table
-        protected void AddCourseScheduleBtn_Click(object sender, EventArgs e)
-        {
-
-            DataTable dt = ViewState["ScheduleTable"] as DataTable;
-
-            for (int i = 0; i < gvSchedule.Rows.Count; i++)
-            {
-                GridViewRow row = gvSchedule.Rows[i];
-
-                if (i < dt.Rows.Count)
-                {
-                    dt.Rows[i]["Weekday"] = ((DropDownList)row.FindControl("ddlWeekday")).SelectedValue;
-                    dt.Rows[i]["StartTime"] = ((TextBox)row.FindControl("txtStartTime")).Text;
-                    dt.Rows[i]["EndTime"] = ((TextBox)row.FindControl("txtEndTime")).Text;
-                    dt.Rows[i]["RoomNumber"] = ((DropDownList)row.FindControl("ddlRoomNumber")).SelectedValue;
-                    dt.Rows[i]["FacultyMember"] = ((DropDownList)row.FindControl("ddlFacultyMember")).SelectedValue;
-
-                }
-            }
-
-            DataRow dr = dt.NewRow();
-            dt.Rows.Add(dr);
-            
-            gvSchedule.DataSource = dt;
-            gvSchedule.DataBind();
-            ViewState["ScheduleTable"] = dt;
-        }
 
         // For on delete course plan row
         protected void GvCoursePlan_Delete(object sender, GridViewDeleteEventArgs e)
@@ -157,19 +108,7 @@ namespace CourseRegestrationProject
 
         }
 
-        // for on delete schedule row
-        protected void GvSchedule_Delete(object sender, GridViewDeleteEventArgs e)
-        {
 
-
-
-            DataTable dt = ViewState["ScheduleTable"] as DataTable;
-            dt.Rows.RemoveAt(e.RowIndex);
-            gvSchedule.DataSource = dt;
-            gvSchedule.DataBind();
-            ViewState["ScheduleTable"] = dt;
-
-        }
 
         // Loading the school names from the database
         private void LoadSchools()
@@ -197,138 +136,9 @@ namespace CourseRegestrationProject
             }
         }
 
-        protected void gvSchedule_DataBound(object sender, EventArgs e)
-        {
-            InitRoomNumber();
-            InitFacultyName();
-        }
-
-        private void InitFacultyName()
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = @"select id, faculty_name from Faculty";
-                SqlCommand command = new SqlCommand(query, conn);
-
-                try
-                {
-                    conn.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    // Get the current data from ViewState to preserve selections
-                    DataTable scheduleDt = ViewState["ScheduleTable"] as DataTable;
-
-                    foreach (GridViewRow row in gvSchedule.Rows)
-                    {
-                        DropDownList ddlFacultyMember = (DropDownList)row.FindControl("ddlFacultyMember");
-                        if (ddlFacultyMember != null)
-                        {
-                            // Store the index to access the correct row in the DataTable
-                            int rowIndex = row.RowIndex;
-                            string currentValue = "";
-
-                            // Get the saved value from the DataTable if it exists
-                            if (rowIndex < scheduleDt.Rows.Count &&
-                                scheduleDt.Rows[rowIndex]["FacultyMember"] != DBNull.Value)
-                            {
-                                currentValue = scheduleDt.Rows[rowIndex]["FacultyMember"].ToString();
-                            }
-
-                            ddlFacultyMember.Items.Clear();
-                            ddlFacultyMember.Items.Add(new ListItem("-- Select Faculty --", ""));
-                            ddlFacultyMember.DataSource = dt;
-                            ddlFacultyMember.DataTextField = "faculty_name";
-                            ddlFacultyMember.DataValueField = "id";
-                            ddlFacultyMember.DataBind();
-
-                            if (!string.IsNullOrEmpty(currentValue))
-                            {
-                                ListItem item = ddlFacultyMember.Items.FindByValue(currentValue);
-                                if (item != null)
-                                {
-                                    item.Selected = true;
-                                }
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message);
-                }
-            }
-        }
-
-        // Loading the room numbers from the database
-        private void InitRoomNumber()
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = @"select id, Room_No from Room";
-                SqlCommand command = new SqlCommand(query, conn);
-                try
-                {
-                    conn.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    DataTable scheduleDt = ViewState["ScheduleTable"] as DataTable;
 
 
 
-
-                    System.Diagnostics.Debug.WriteLine("Room data rows: " + dt.Rows.Count);
-
-                    foreach (GridViewRow row in gvSchedule.Rows)
-                    {
-                        DropDownList ddlRoomNumber = (DropDownList)row.FindControl("ddlRoomNumber");
-                        if (ddlRoomNumber != null)
-                        {
-                            int rowIndex = row.RowIndex;
-                            string currentValue = "";
-
-                            // Get the saved value from the DataTable for this row if it exists
-                            if (rowIndex < scheduleDt.Rows.Count &&
-                                scheduleDt.Rows[rowIndex]["RoomNumber"] != DBNull.Value)
-                            {
-                                currentValue = scheduleDt.Rows[rowIndex]["RoomNumber"].ToString();
-                            }
-
-                           
-
-
-                            ddlRoomNumber.Items.Clear();
-
-                            ddlRoomNumber.Items.Add(new ListItem("-- Select Room --", ""));
-
-                            ddlRoomNumber.DataSource = dt;
-                            ddlRoomNumber.DataTextField = "Room_No";
-                            ddlRoomNumber.DataValueField = "id";
-                            ddlRoomNumber.DataBind();
-
-                            if (!string.IsNullOrEmpty(currentValue))
-                            {
-                                ListItem item = ddlRoomNumber.Items.FindByValue(currentValue);
-                                if (item != null)
-                                {
-                                    item.Selected = true;
-                                }
-                            }
-                        }
-                    }
-
-
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine("Error in InitRoomNumber: " + ex.Message);
-                    Response.Write("Error loading rooms: " + ex.Message);
-                }
-            }
-        }
 
 
 
@@ -371,10 +181,6 @@ namespace CourseRegestrationProject
             // saving to CoursePlanTable
 
             SaveCoursePlanTable(courseID);
-
-            // saving to SchedulePlanTable
-
-            SaveSchedulePlan(courseID);
 
             System.Diagnostics.Debug.WriteLine("All save operations completed");
             

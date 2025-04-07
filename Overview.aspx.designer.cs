@@ -87,24 +87,6 @@ namespace CourseRegestrationProject
         protected global::System.Web.UI.WebControls.GridView gvCoursePlan;
 
         /// <summary>
-        /// UpdatePanel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-
-        /// <summary>
-        /// gvSchedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSchedule;
-
-        /// <summary>
         /// btnDash control.
         /// </summary>
         /// <remarks>

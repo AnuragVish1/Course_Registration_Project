@@ -199,9 +199,9 @@ namespace CourseRegestrationProject
                     conn.Open();
                     command.ExecuteNonQuery();
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    Response.Write(e.ToString());
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
                 }
             }
         }
@@ -748,7 +748,7 @@ namespace CourseRegestrationProject
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"INSERT INTO Room_Schedule_Map (Schedule_id, Room_No) 
-                         VALUES (@ScheduleId, @RoomId)";
+                VALUES (@ScheduleId, @RoomId)";
 
                 SqlCommand command = new SqlCommand(query, conn);
                 command.Parameters.AddWithValue("@ScheduleId", scheduleId);
