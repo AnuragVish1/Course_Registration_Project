@@ -3,20 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\new_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\schedule.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:schedule.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ANURAG_SOURCE_REPOS_COURSEREGESTRATIONPROJECT_APP_DATA_DATABASE1.MDF/True/SqlTable/dbo.schedule.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ANURAG_SOURCE_REPOS_COURSEREGESTRATIONPROJECT_APP_DATA_DATABASE1.MDF/True/SqlTable/dbo.Room.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ANURAG_SOURCE_REPOS_COURSEREGESTRATIONPROJECT_APP_DATA_DATABASE1.MDF/True/SqlTable/dbo.Room_Schedule_Map.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\remove_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:remove_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\new_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:new_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\schedule.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:schedule.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\new_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:new_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\remove_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:remove_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\edit_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:edit_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\dashbard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:dashbard.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\edit_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:edit_course.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\site1.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:site1.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ANURAG_SOURCE_REPOS_COURSEREGESTRATIONPROJECT_APP_DATA_DATABASE1.MDF/True/SqlTable/dbo.Faculty.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +50,80 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "dbo.schedule [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ANURAG_SOURCE_REPOS_COURSEREGESTRATIONPROJECT_APP_DATA_DATABASE1.MDF/True/SqlTable/dbo.schedule.sql",
+              "ToolTip": "dbo.schedule [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-04-06T19:30:22.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dbo.Room_Schedule_Map [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ANURAG_SOURCE_REPOS_COURSEREGESTRATIONPROJECT_APP_DATA_DATABASE1.MDF/True/SqlTable/dbo.Room_Schedule_Map.sql",
+              "ToolTip": "dbo.Room_Schedule_Map [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-04-06T19:25:16.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dbo.Room [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ANURAG_SOURCE_REPOS_COURSEREGESTRATIONPROJECT_APP_DATA_DATABASE1.MDF/True/SqlTable/dbo.Room.sql",
+              "ToolTip": "dbo.Room [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-04-06T19:25:13.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Remove_Course.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Remove_Course.aspx.cs",
+              "RelativeDocumentMoniker": "Remove_Course.aspx.cs",
+              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Remove_Course.aspx.cs",
+              "RelativeToolTip": "Remove_Course.aspx.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAApwKoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T18:53:19.393Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Schedule.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Schedule.aspx.cs",
+              "RelativeDocumentMoniker": "Schedule.aspx.cs",
+              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Schedule.aspx.cs",
+              "RelativeToolTip": "Schedule.aspx.cs",
+              "ViewState": "AgIAAGACAAAAAAAAAAAIwGkCAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T17:42:40.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "dbo.Faculty [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_ANURAG_SOURCE_REPOS_COURSEREGESTRATIONPROJECT_APP_DATA_DATABASE1.MDF/True/SqlTable/dbo.Faculty.sql",
+              "ToolTip": "dbo.Faculty [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-04-06T11:05:28.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "New_course.aspx",
               "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\New_course.aspx",
               "RelativeDocumentMoniker": "New_course.aspx",
@@ -38,51 +131,60 @@
               "RelativeToolTip": "New_course.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-04-05T17:31:06.422Z",
+              "WhenOpened": "2025-04-06T11:13:23.676Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Site1.Master.cs",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Site1.Master.cs",
-              "RelativeDocumentMoniker": "Site1.Master.cs",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Site1.Master.cs",
-              "RelativeToolTip": "Site1.Master.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACYAAAANAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "New_course.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\New_course.aspx.cs",
+              "RelativeDocumentMoniker": "New_course.aspx.cs",
+              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\New_course.aspx.cs",
+              "RelativeToolTip": "New_course.aspx.cs",
+              "ViewState": "AgIAAPoBAAAAAAAAAAAvwAkCAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T16:57:28.266Z",
+              "WhenOpened": "2025-04-06T11:11:30.717Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dashbard.aspx",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Dashbard.aspx",
-              "RelativeDocumentMoniker": "Dashbard.aspx",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Dashbard.aspx",
-              "RelativeToolTip": "Dashbard.aspx",
+              "DocumentIndex": 9,
+              "Title": "Edit_course.aspx",
+              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Edit_course.aspx",
+              "RelativeDocumentMoniker": "Edit_course.aspx",
+              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Edit_course.aspx",
+              "RelativeToolTip": "Edit_course.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-04-05T16:57:03.39Z",
+              "WhenOpened": "2025-04-06T10:17:30.04Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Remove_Course.aspx",
-              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Remove_Course.aspx",
-              "RelativeDocumentMoniker": "Remove_Course.aspx",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Remove_Course.aspx",
-              "RelativeToolTip": "Remove_Course.aspx",
+              "DocumentIndex": 6,
+              "Title": "Schedule.aspx",
+              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Schedule.aspx",
+              "RelativeDocumentMoniker": "Schedule.aspx",
+              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Schedule.aspx",
+              "RelativeToolTip": "Schedule.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-04-05T16:56:41.79Z",
+              "WhenOpened": "2025-04-06T10:16:56.115Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Edit_course.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Edit_course.aspx.cs",
+              "RelativeDocumentMoniker": "Edit_course.aspx.cs",
+              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Edit_course.aspx.cs",
+              "RelativeToolTip": "Edit_course.aspx.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAgwIUCAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T10:16:36.331Z",
+              "EditorCaption": ""
             }
           ]
         }

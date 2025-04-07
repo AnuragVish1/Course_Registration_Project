@@ -61,6 +61,8 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 14px;
+            max-width: 100%;
+            min-width: 100%;
         }
 
             .form-control:focus {
@@ -70,7 +72,7 @@
 
         .section-title {
             color: #000;
-            margin: 25px 0 15px 0;
+            margin-bottom: 1rem;
             padding-bottom: 15px;
             border-bottom: 1px solid #eee;
             font-size: 32px;

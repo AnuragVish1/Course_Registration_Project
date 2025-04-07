@@ -144,24 +144,8 @@ WHERE
                     txtCourseName.Text = dt.Rows[0]["course_name"].ToString();
                     txtCredits.Text = dt.Rows[0]["credits"].ToString();
                     txtDescription.Text = dt.Rows[0]["description"].ToString();
-                    using (SqlConnection connect = new SqlConnection(connectionString))
-                    {
-                        string Semester_Query = @"select Sem_Name from Semester where id = (select semester_id from Course_Semester_Map where course_id = @CourseId)";
-                        SqlCommand cmd = new SqlCommand(Semester_Query, connect);
-                        cmd.Parameters.AddWithValue("@CourseId", courseID);
-                        try
-                        {
-                            SqlDataAdapter adapter1 = new SqlDataAdapter (cmd);
-                            DataTable dt1 = new DataTable();
-                            adapter1.Fill(dt1);
-                            string semesterName = dt1.Rows[0]["Sem_Name"].ToString();
-                            txtSemester.Text = semesterName;
-                        }
-                        catch(Exception ex) 
-                        {
-                            Response.Write(ex.ToString());
-                        }
-                    }
+                    
+                    
                 }
                 catch (Exception ex)
                 {

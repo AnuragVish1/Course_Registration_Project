@@ -37,6 +37,11 @@ namespace CourseRegestrationProject
                 LinkButton4.Attributes.CssStyle.Add("background-color", "white");
                 LinkButton4.Attributes.CssStyle.Add("color", "Black");
             }
+            else if (pageName == "Schedule.aspx")
+            {
+                LinkButton5.Attributes.CssStyle.Add("background-color", "white");
+                LinkButton5.Attributes.CssStyle.Add("color", "Black");
+            }
         }
     }
 }

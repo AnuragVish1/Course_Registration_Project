@@ -5,58 +5,59 @@
 <html>
 <head runat="server">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
-        *{
-            padding:0;
-            margin:0;
+        * {
+            padding: 0;
+            margin: 0;
             box-sizing: border-box;
         }
-        .links{
+
+        .links {
             height: 58px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 80px;
-            
             text-decoration: none !important;
             box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
             font-family: sans-serif;
             font-size: medium;
             background-color: #c23434;
-            
-
         }
 
-        .link-buttons{
+        .link-buttons {
             color: white;
-            text-decoration:none;
+            text-decoration: none;
             padding: 10px;
             transition: all 0.3s ease;
-            border-radius:5px
-        }
-        .link-buttons:hover{
-            color:black;
-            background-color: #f4f4f4;
-            transition: all 0.3s ease;
+            border-radius: 5px
         }
 
+            .link-buttons:hover {
+                color: black;
+                background-color: #f4f4f4;
+                transition: all 0.3s ease;
+            }
     </style>
 </head>
 <body style="height: 673px">
     <form id="form1" runat="server">
+
         <div class="links">
+
             <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Dashbard.aspx" CssClass="link-buttons" CausesValidation="false">Dashboard</asp:LinkButton>
             <asp:LinkButton ID="LinkButton2" PostBackUrl="~/New_course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">New Course</asp:LinkButton>
             <asp:LinkButton ID="LinkButton3" PostBackUrl="~/Add_Course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Add Course</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton5" PostBackUrl="~/Schedule.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Course Schedule</asp:LinkButton>
             <asp:LinkButton ID="LinkButton4" PostBackUrl="~/Remove_Course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Remove Course</asp:LinkButton>
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-</asp:ContentPlaceHolder>
+        </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>
