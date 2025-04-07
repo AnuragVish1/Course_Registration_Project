@@ -113,6 +113,7 @@
             background-repeat: no-repeat;
             background-size: 18px 18px;
             background-position: 10px center;
+            box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
         }
 
             .inputField:focus {
@@ -138,6 +139,7 @@
             margin-left: 2.5rem;
             position: absolute;
             left: 0;
+            box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
         }
     </style>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

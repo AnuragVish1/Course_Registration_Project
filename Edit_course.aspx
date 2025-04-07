@@ -37,30 +37,30 @@
         }
 
         .form-control {
-           width: 100%;
-padding: 8px 12px;
-border-radius: 6px;
-font-size: 14px;
-max-width: 100%;
-min-width: 100%;
-border: 1px solid #ddd;
-height: 2.4rem;
-transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            max-width: 100%;
+            min-width: 100%;
+            border: 1px solid #ddd;
+            height: 2.4rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .form-control:focus {
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
-}
+            .form-control:focus {
+                border-color: #4a90e2;
+                box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+            }
 
-.form-control:focus {
-    border-color: #007bff;
-    outline: none;
-}
+            .form-control:focus {
+                border-color: #007bff;
+                outline: none;
+            }
 
         .section-title {
             color: #000;
-                        margin-bottom: 1rem;
+            margin-bottom: 1rem;
             padding-bottom: 15px;
             border-bottom: 1px solid #eee;
             font-size: 32px;
@@ -148,50 +148,50 @@ transition: border-color 0.3s ease, box-shadow 0.3s ease;
             border-radius: 4px;
             font-size: 14px;
             background-color: white;
-
         }
+
         .dynamic-table {
-    width: 100%;
-    border: none;
-    border-collapse: collapse;
-}
+            width: 100%;
+            border: none;
+            border-collapse: collapse;
+        }
 
-    .dynamic-table th {
-        padding: 1rem;
-        text-align: left;
-        font-weight: 600;
-        border: none;
-        border-bottom: 1px solid #eee;
-    }
+            .dynamic-table th {
+                padding: 1rem;
+                text-align: left;
+                font-weight: 600;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
 
-    .dynamic-table tr {
-        border: none;
-        transition: all 0.3s ease;
-    }
+            .dynamic-table tr {
+                border: none;
+                transition: all 0.3s ease;
+            }
 
-    .dynamic-table td {
-        padding: 0.8rem;
-        border: none;
-        border-bottom: 1px solid #eee;
-    }
+            .dynamic-table td {
+                padding: 0.8rem;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
 
-    .dynamic-table tr:last-child td {
-        border-bottom: none;
-    }
+            .dynamic-table tr:last-child td {
+                border-bottom: none;
+            }
 
-    .dynamic-table th:last-child {
-        text-align: center;
-    }
+            .dynamic-table th:last-child {
+                text-align: center;
+            }
 
-    .dynamic-table .action-column {
-        width: 12%;
-        text-align: center;
-    }
+            .dynamic-table .action-column {
+                width: 12%;
+                text-align: center;
+            }
 
-    .dynamic-table tr:hover {
-        background-color: #f6f6f6;
-        transition: all 0.3s ease;
-    }
+            .dynamic-table tr:hover {
+                background-color: #f6f6f6;
+                transition: all 0.3s ease;
+            }
 
         .text-danger {
             color: #dc3545;
@@ -201,24 +201,26 @@ transition: border-color 0.3s ease, box-shadow 0.3s ease;
             content: " *";
             color: #dc3545;
         }
-        .form-option
-        {
-            padding:10px;
-            border-radius:2px;
+
+        .form-option {
+            padding: 10px;
+            border-radius: 2px;
         }
-         .course-table {
-     margin-top: 1rem;
-     background-color: #fdfdfd;
-     border-radius: 8px;
-     border: 1px solid #e3dbdb;
-     padding: 1px;
- }
-         .no-session-message {
-    padding: 20px;
-    text-align: center;
-    color: #666;
-    font-style: italic;
-}
+
+        .course-table {
+            margin-top: 1rem;
+            background-color: #fdfdfd;
+            border-radius: 8px;
+            border: 1px solid #e3dbdb;
+            padding: 1px;
+        }
+
+        .no-session-message {
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
     </style>
 
     <div class="main-content">
@@ -274,7 +276,7 @@ transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
 
                     <div class="table-actions">
-                        <asp:Button ID="btnAddCoursePlanRow" runat="server" Text="+ Add Session" CssClass="btn-add-row" CausesValidation="false"  OnClick="AddCoursePlanBtn_Click"/>
+                        <asp:Button ID="btnAddCoursePlanRow" runat="server" Text="+ Add Session" CssClass="btn-add-row" CausesValidation="false" OnClick="AddCoursePlanBtn_Click" />
                     </div>
 
                     <div class="course-table">

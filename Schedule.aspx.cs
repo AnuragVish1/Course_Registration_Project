@@ -139,8 +139,6 @@ namespace CourseRegestrationProject
                 }
             }
         }
-        // for on delete schedule row
-
 
         protected void btnAddScheduleRow_Click(object sender, EventArgs e)
         {
@@ -182,7 +180,7 @@ namespace CourseRegestrationProject
             DeleteRoomSchedule(schedule_ids);
 
             DeleteScheduleData(selectedCourseId);
-            // Save Shedule
+            // Save schedule
             SaveSchedulePlan(selectedCourseId);
         }
 
