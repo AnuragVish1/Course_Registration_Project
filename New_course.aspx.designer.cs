@@ -105,6 +105,33 @@ namespace CourseRegestrationProject
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
+        /// btnAddCoursePlanRow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddCoursePlanRow;
+
+        /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// <summary>
+        /// btnUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpload;
+
+        /// <summary>
         /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
@@ -121,15 +148,6 @@ namespace CourseRegestrationProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
-        /// btnAddCoursePlanRow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddCoursePlanRow;
 
         /// <summary>
         /// gvCoursePlan control.

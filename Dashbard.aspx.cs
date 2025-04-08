@@ -77,7 +77,7 @@ namespace CourseRegestrationProject
                     adapter.Fill(dt);
                     CourseRepeater.DataSource = dt;
                     CourseRepeater.DataBind();
-                    Response.Write(dt.ToString());
+                    
                 }
                 catch (Exception ex)
                 {

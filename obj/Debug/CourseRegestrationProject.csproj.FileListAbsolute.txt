@@ -59,3 +59,6 @@ C:\Users\Anurag\source\repos\CourseRegestrationProject\obj\Debug\CourseRegestrat
 C:\Users\Anurag\source\repos\CourseRegestrationProject\obj\Debug\CourseRegestrationProject.pdb
 C:\Users\Anurag\source\repos\CourseRegestrationProject\bin\System.Data.SqlClient.dll
 C:\Users\Anurag\source\repos\CourseRegestrationProject\bin\System.Data.SqlClient.xml
+C:\Users\Anurag\source\repos\CourseRegestrationProject\bin\ExcelDataReader.dll
+C:\Users\Anurag\source\repos\CourseRegestrationProject\bin\ExcelDataReader.pdb
+C:\Users\Anurag\source\repos\CourseRegestrationProject\bin\ExcelDataReader.xml

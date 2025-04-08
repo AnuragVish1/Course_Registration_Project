@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ExcelDataReader;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Hosting;
@@ -108,7 +110,99 @@ namespace CourseRegestrationProject
 
         }
 
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            if (FileUpload1.HasFile)
+            {
+                try
+                {
+                    string fileExtension = Path.GetExtension(FileUpload1.FileName).ToLower();
 
+                    // Check if the file is an Excel file
+                    if (fileExtension == ".xls" || fileExtension == ".xlsx")
+                    {
+                        // Create a temporary file to store the uploaded Excel file
+                        string fileName = Path.GetTempFileName();
+                        FileUpload1.SaveAs(fileName);
+
+                        // Read the Excel file
+                        using (var stream = File.Open(fileName, FileMode.Open, FileAccess.Read))
+                        {
+                            // Auto-detect format, supports:
+                            // - Binary Excel files (2.0-2003 format; *.xls)
+                            // - OpenXml Excel files (2007 format; *.xlsx)
+                            using (var reader = ExcelReaderFactory.CreateReader(stream))
+                            {
+                                // Initialize DataTable to store data from Excel
+                                DataTable dt = ViewState["CoursePlanTable"] as DataTable;
+                                if (dt == null)
+                                {
+                                    InitCoursePlanGrid();
+                                    dt = ViewState["CoursePlanTable"] as DataTable;
+                                }
+
+                                // Clear existing data
+                                dt.Rows.Clear();
+
+                                // Skip the header row (assuming first row is header)
+                                reader.Read();
+
+                                // Read data from Excel file and add to DataTable
+                                int rowIndex = 1; // Start with 1 to account for session number
+                                while (reader.Read())
+                                {
+                                    DataRow dr = dt.NewRow();
+
+                                    // Map Excel columns to DataTable columns
+                                    // Assuming Excel structure: SessionNumber, Topic, Subtopic, ReadingMaterial, Activity, ImportantDates
+                                    dr["SessionNumber"] = rowIndex++;
+
+                                    // Make sure to check for null values from Excel
+                                    dr["Topic"] = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+                                    dr["Subtopic"] = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
+                                    dr["ReadingMaterial"] = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
+                                    dr["Activity"] = reader.IsDBNull(4) ? string.Empty : reader.GetString(4);
+                                    dr["ImportantDates"] = reader.IsDBNull(5) ? string.Empty : reader.GetString(5);
+
+                                    dt.Rows.Add(dr);
+                                }
+
+                                // Bind the DataTable to the GridView
+                                gvCoursePlan.DataSource = dt;
+                                gvCoursePlan.DataBind();
+                                ViewState["CoursePlanTable"] = dt;
+                            }
+                        }
+
+                        // Delete the temporary file
+                        File.Delete(fileName);
+
+                        // Show success message
+                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowSuccess",
+                            "alert('Excel file imported successfully!');", true);
+                    }
+                    else
+                    {
+                        // Show error message for invalid file format
+                        ScriptManager.RegisterStartupScript(this, GetType(), "ShowError",
+                            "alert('Please upload an Excel file (.xls or .xlsx)');", true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Show error message
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ShowError",
+                        $"alert('Error importing Excel file: {ex.Message}');", true);
+                    System.Diagnostics.Debug.WriteLine("Excel import error: " + ex.ToString());
+                }
+            }
+            else
+            {
+                // Show error message for no file selected
+                ScriptManager.RegisterStartupScript(this, GetType(), "ShowError",
+                    "alert('Please select an Excel file to import.');", true);
+            }
+        }
 
         // Loading the school names from the database
         private void LoadSchools()
@@ -136,6 +230,100 @@ namespace CourseRegestrationProject
             }
         }
 
+        // Importing Data from excel file
+        //protected void btnImportExcel_Click(object sender, EventArgs e)
+        //{
+        //    if (fileUploadExcel.HasFile)
+        //    {
+        //        try
+        //        {
+        //            string fileExtension = Path.GetExtension(fileUploadExcel.FileName).ToLower();
+
+        //            // Check if the file is an Excel file
+        //            if (fileExtension == ".xls" || fileExtension == ".xlsx")
+        //            {
+        //                // Create a temporary file to store the uploaded Excel file
+        //                string fileName = Path.GetTempFileName();
+        //                fileUploadExcel.SaveAs(fileName);
+
+        //                // Read the Excel file
+        //                using (var stream = File.Open(fileName, FileMode.Open, FileAccess.Read))
+        //                {
+        //                    // Auto-detect format, supports:
+        //                    // - Binary Excel files (2.0-2003 format; *.xls)
+        //                    // - OpenXml Excel files (2007 format; *.xlsx)
+        //                    using (var reader = ExcelReaderFactory.CreateReader(stream))
+        //                    {
+        //                        // Initialize DataTable to store data from Excel
+        //                        DataTable dt = ViewState["CoursePlanTable"] as DataTable;
+        //                        if (dt == null)
+        //                        {
+        //                            InitCoursePlanGrid();
+        //                            dt = ViewState["CoursePlanTable"] as DataTable;
+        //                        }
+
+        //                        // Clear existing data
+        //                        dt.Rows.Clear();
+
+        //                        // Skip the header row (assuming first row is header)
+        //                        reader.Read();
+
+        //                        // Read data from Excel file and add to DataTable
+        //                        int rowIndex = 1; // Start with 1 to account for session number
+        //                        while (reader.Read())
+        //                        {
+        //                            DataRow dr = dt.NewRow();
+
+        //                            // Map Excel columns to DataTable columns
+        //                            // Assuming Excel structure: SessionNumber, Topic, Subtopic, ReadingMaterial, Activity, ImportantDates
+        //                            dr["SessionNumber"] = rowIndex++;
+
+        //                            // Make sure to check for null values from Excel
+        //                            dr["Topic"] = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+        //                            dr["Subtopic"] = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
+        //                            dr["ReadingMaterial"] = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
+        //                            dr["Activity"] = reader.IsDBNull(4) ? string.Empty : reader.GetString(4);
+        //                            dr["ImportantDates"] = reader.IsDBNull(5) ? string.Empty : reader.GetString(5);
+
+        //                            dt.Rows.Add(dr);
+        //                        }
+
+        //                        // Bind the DataTable to the GridView
+        //                        gvCoursePlan.DataSource = dt;
+        //                        gvCoursePlan.DataBind();
+        //                        ViewState["CoursePlanTable"] = dt;
+        //                    }
+        //                }
+
+        //                // Delete the temporary file
+        //                File.Delete(fileName);
+
+        //                // Show success message
+        //                ScriptManager.RegisterStartupScript(this, GetType(), "ShowSuccess",
+        //                    "alert('Excel file imported successfully!');", true);
+        //            }
+        //            else
+        //            {
+        //                // Show error message for invalid file format
+        //                ScriptManager.RegisterStartupScript(this, GetType(), "ShowError",
+        //                    "alert('Please upload an Excel file (.xls or .xlsx)');", true);
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Show error message
+        //            ScriptManager.RegisterStartupScript(this, GetType(), "ShowError",
+        //                $"alert('Error importing Excel file: {ex.Message}');", true);
+        //            System.Diagnostics.Debug.WriteLine("Excel import error: " + ex.ToString());
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // Show error message for no file selected
+        //        ScriptManager.RegisterStartupScript(this, GetType(), "ShowError",
+        //            "alert('Please select an Excel file to import.');", true);
+        //    }
+        //}
 
 
 
@@ -227,150 +415,6 @@ namespace CourseRegestrationProject
                 }
             }
         }
-
-        private void SaveSchedulePlan(int courseID)
-        {
-            DataTable dt = ViewState["ScheduleTable"] as DataTable;
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                System.Diagnostics.Debug.WriteLine("No schedule data to save");
-                return;
-            }
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    System.Diagnostics.Debug.WriteLine("Saving schedule data - rows: " + dt.Rows.Count);
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        // Skiping empty rows
-                        if (row["Weekday"] == DBNull.Value || string.IsNullOrEmpty(row["Weekday"].ToString()))
-                        {
-                            System.Diagnostics.Debug.WriteLine("Skipping empty row in schedule");
-                            continue;
-                        }
-                        // TODO: check for clash in time or faculty name or room
-
-                        string query = @"INSERT INTO schedule (course_id, schedule_weekday, start_time, end_time, [Room No.], semester) 
-                                VALUES (@CourseId, @schedule_weekday, @StartTime, @EndTime, @RoomNo, @semester);
-                                SELECT SCOPE_IDENTITY();";
-                        using (SqlCommand command = new SqlCommand(query, conn))
-                        {
-                            command.Parameters.AddWithValue("@CourseId", courseID);
-                            command.Parameters.AddWithValue("@schedule_weekday", row["Weekday"]);
-                            
-
-                            // Handling time parsing
-                            TimeSpan startTime, endTime;
-                            if (TimeSpan.TryParse(row["StartTime"].ToString(), out startTime))
-                            {
-                                command.Parameters.AddWithValue("@StartTime", startTime);
-                            }
-                            else
-                            {
-                                System.Diagnostics.Debug.WriteLine("Invalid start time format: " + row["StartTime"]);
-                                command.Parameters.AddWithValue("@StartTime", new TimeSpan(0, 0, 0));
-                            }
-
-                            if (TimeSpan.TryParse(row["EndTime"].ToString(), out endTime))
-                            {
-                                command.Parameters.AddWithValue("@EndTime", endTime);
-                            }
-                            else
-                            {
-                                System.Diagnostics.Debug.WriteLine("Invalid end time format: " + row["EndTime"]);
-                                command.Parameters.AddWithValue("@EndTime", new TimeSpan(0, 0, 0));
-                            }
-
-                            // Checking if RoomNumber is valid
-                            if (row["RoomNumber"] != DBNull.Value && !string.IsNullOrEmpty(row["RoomNumber"].ToString()))
-                            {
-                                command.Parameters.AddWithValue("@RoomNo", row["RoomNumber"]);
-                            }
-                            else
-                            {
-                                System.Diagnostics.Debug.WriteLine("Missing room number");
-                                command.Parameters.AddWithValue("@RoomNo", DBNull.Value);
-                            }
-
-                            try
-                            {
-                                int scheduleId = Convert.ToInt32(command.ExecuteScalar());
-                                System.Diagnostics.Debug.WriteLine("Saved schedule row with ID: " + scheduleId);
-
-                                if (scheduleId > 0 && row["RoomNumber"] != DBNull.Value &&
-                                    !string.IsNullOrEmpty(row["RoomNumber"].ToString()))
-                                {
-                                    SaveRoomSchedule(scheduleId, Convert.ToInt32(row["RoomNumber"]));
-                                }
-
-                                if (scheduleId > 0 && row["FacultyMember"] != DBNull.Value &&
-                                    !string.IsNullOrEmpty(row["FacultyMember"].ToString()))
-                                {
-                                    SaveFacultyScheduleMap(scheduleId, Convert.ToInt32(row["FacultyMember"]));
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                System.Diagnostics.Debug.WriteLine("Error saving schedule: " + ex.Message);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine("Error in SaveSchedulePlan: " + ex.Message);
-                }
-            }
-        }
-
-        private void SaveFacultyScheduleMap(int scheduleId, int facultyNumber)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = @"INSERT INTO Faculty_Schedule_Map (schedule_id, faculty_id) 
-                         VALUES (@ScheduleId, @FacultyId)";
-                SqlCommand command = new SqlCommand(query, conn);
-                command.Parameters.AddWithValue("@ScheduleId", scheduleId);
-                command.Parameters.AddWithValue("@FacultyId", facultyNumber);
-                try
-                {
-                    conn.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.ToString());
-                }
-            }
-        }
-
-        private void SaveRoomSchedule(int scheduleId, int roomNumber)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = @"INSERT INTO Room_Schedule_Map (Schedule_id, Room_No) 
-                         VALUES (@ScheduleId, @RoomId)";
-
-                SqlCommand command = new SqlCommand(query,conn);
-                command.Parameters.AddWithValue("@ScheduleId", scheduleId);
-                command.Parameters.AddWithValue("@RoomId", roomNumber);
-                try
-                {
-                    conn.Open();
-                    command.ExecuteNonQuery();
-                }
-
-                catch (Exception ex)
-                {
-                    Response.Write(ex.ToString());
-                }
-            }
-        }
-
         private void SaveCoursePlanTable(int courseID)
         {
             DataTable dt = ViewState["CoursePlanTable"] as DataTable;

@@ -199,7 +199,7 @@ namespace CourseRegestrationProject
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                    System.Diagnostics.Debug.WriteLine("This is the problem" +  ex.Message);
                 }
             }
         }
@@ -218,10 +218,11 @@ namespace CourseRegestrationProject
                     {
                         conn.Open();
                         command.ExecuteNonQuery();
+                        conn.Close();
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        System.Diagnostics.Debug.WriteLine("This is Room Problem" +  ex.Message);
                     }
                 }
             }
@@ -241,10 +242,11 @@ namespace CourseRegestrationProject
                     {
                         conn.Open();
                         command.ExecuteNonQuery();
+                        conn.Close();
                     }
                     catch (Exception ex)
                     {
-                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        System.Diagnostics.Debug.WriteLine("This is Faculty Problem" + ex.Message);
                     }
                 }
             }
@@ -313,11 +315,13 @@ namespace CourseRegestrationProject
             }
         }
 
+
         protected void gvSemesterCourses_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "SelectCourse")
             {
                 int courseId = Convert.ToInt32(e.CommandArgument);
+
                 selectedCourseId = courseId;
                 ViewState["SelectedCourseId"] = courseId;
 
@@ -471,7 +475,7 @@ namespace CourseRegestrationProject
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                    System.Diagnostics.Debug.WriteLine("This is faculty" + ex.Message);
                 }
             }
         }
@@ -480,9 +484,10 @@ namespace CourseRegestrationProject
         {
             int facultyIndex = 0;
             int courseID = selectedCourseId;
+            
             DropDownList ddlWeekDay = (DropDownList)row.FindControl("ddlWeekday");
             string weekday = ddlWeekDay.SelectedValue;
-
+            System.Diagnostics.Debug.WriteLine("The courseId = " + courseID + "And the weekday = " + weekday);
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"select faculty_id from Faculty_Schedule_Map where schedule_id = (select id from schedule where schedule_weekday = @weekday and course_id = @Course_ID and semester_id = @SemesterId)";
@@ -500,7 +505,7 @@ namespace CourseRegestrationProject
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                    System.Diagnostics.Debug.WriteLine("This is Faculty Name" + ex.Message);
                 }
 
             }

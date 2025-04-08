@@ -213,7 +213,6 @@
             background-repeat: no-repeat;
             background-size: 12px 12px;
             background-position: calc(100% - 12px);
-            
         }
 
         .text-danger {
@@ -348,6 +347,10 @@
             border: 1px solid #e3dbdb;
             padding: 1px;
         }
+        .file-upload-btn{
+
+        }
+
     </style>
     <div id="courseExistsModal" class="modal-backdrop" style="display: none;">
         <div class="modal-dialog">
@@ -410,18 +413,22 @@
                     placeholder="Enter course description, objectives, and learning outcomes..."></asp:TextBox>
             </div>
         </div>
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
-                <div class="form-container">
-                    <h3 class="section-title">Course Plan</h3>
-                    <p>Add sessions and their details for the course plan.</p>
+
+        <br />
+
+        <div class="form-container">
+            <h3 class="section-title">Course Plan</h3>
+            <p>Add sessions and their details for the course plan.</p>
 
 
-                    <div class="table-actions">
-                        <asp:Button ID="btnAddCoursePlanRow" runat="server" Text="+ Add Session" CssClass="btn-add-row" CausesValidation="false" OnClick="AddCoursePlanBtn_Click" />
-                    </div>
-
+            <div class="table-actions">
+                <asp:Button ID="btnAddCoursePlanRow" runat="server" Text="+ Add Session" CssClass="btn-add-row" CausesValidation="false" OnClick="AddCoursePlanBtn_Click" />
+            </div>
+            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="file-upload-btn"/>
+            <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
                     <div class="course-table">
                         <asp:GridView ID="gvCoursePlan" runat="server" CssClass="dynamic-table" AutoGenerateColumns="false" OnRowDeleting="GvCoursePlan_Delete">
                             <Columns>
@@ -475,12 +482,12 @@
                         </asp:GridView>
                     </div>
 
-                </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
-        <div class="btn-container">
-            <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn-cancel" CausesValidation="false" />
-            <asp:Button ID="btnSave" runat="server" Text="Save Course" CssClass="btn-primary" OnClick="SaveCourseClickEvent" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div class="btn-container">
+                <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="btn-cancel" CausesValidation="false" />
+                <asp:Button ID="btnSave" runat="server" Text="Save Course" CssClass="btn-primary" OnClick="SaveCourseClickEvent" />
+            </div>
         </div>
-    </div>
 </asp:Content>
