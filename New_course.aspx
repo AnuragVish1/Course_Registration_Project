@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="New_course.aspx.cs" Inherits="CourseRegestrationProject.WebForm2" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script type="text/javascript">
         function showModal(message) {
             if (message) {
@@ -127,6 +128,7 @@
             padding-bottom: 15px;
             border-bottom: 1px solid #eee;
             font-size: 32px;
+            font-weight: 700;
         }
 
         .btn-container {
@@ -347,7 +349,22 @@
             border: 1px solid #e3dbdb;
             padding: 1px;
         }
-        .file-upload-btn{
+
+        .btnUpload_Click{
+            margin-top: 1rem;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-radius: 8px;
+            outline: none;
+            border: none;
+            background-color: #63cc3f
+        }
+        .fileUploadbtn{
+            border: 2px solid #eeeeee;
+            padding: 0.4rem;
+            border-radius: 8px;
 
         }
 
@@ -424,8 +441,10 @@
             <div class="table-actions">
                 <asp:Button ID="btnAddCoursePlanRow" runat="server" Text="+ Add Session" CssClass="btn-add-row" CausesValidation="false" OnClick="AddCoursePlanBtn_Click" />
             </div>
-            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="file-upload-btn"/>
-            <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" />
+            <div class="FileUploadSection">
+            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="fileUploadbtn" />
+            <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CssClass="btn-add-row " />
+            </div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>

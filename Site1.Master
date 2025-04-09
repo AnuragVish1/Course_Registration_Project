@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -55,6 +56,7 @@
             <asp:LinkButton ID="LinkButton3" PostBackUrl="~/Add_Course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Add Course</asp:LinkButton>
             <asp:LinkButton ID="LinkButton5" PostBackUrl="~/Schedule.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Course Schedule</asp:LinkButton>
             <asp:LinkButton ID="LinkButton4" PostBackUrl="~/Remove_Course.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Remove Course</asp:LinkButton>
+            <asp:LinkButton ID="LinkButton6" PostBackUrl="~/Semester.aspx" CssClass="link-buttons" runat="server" CausesValidation="false">Semester</asp:LinkButton>
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>

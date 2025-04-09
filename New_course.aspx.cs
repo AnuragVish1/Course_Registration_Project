@@ -128,9 +128,7 @@ namespace CourseRegestrationProject
                         // Read the Excel file
                         using (var stream = File.Open(fileName, FileMode.Open, FileAccess.Read))
                         {
-                            // Auto-detect format, supports:
-                            // - Binary Excel files (2.0-2003 format; *.xls)
-                            // - OpenXml Excel files (2007 format; *.xlsx)
+                        
                             using (var reader = ExcelReaderFactory.CreateReader(stream))
                             {
                                 // Initialize DataTable to store data from Excel
@@ -153,11 +151,7 @@ namespace CourseRegestrationProject
                                 {
                                     DataRow dr = dt.NewRow();
 
-                                    // Map Excel columns to DataTable columns
-                                    // Assuming Excel structure: SessionNumber, Topic, Subtopic, ReadingMaterial, Activity, ImportantDates
                                     dr["SessionNumber"] = rowIndex++;
-
-                                    // Make sure to check for null values from Excel
                                     dr["Topic"] = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
                                     dr["Subtopic"] = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
                                     dr["ReadingMaterial"] = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
@@ -167,17 +161,15 @@ namespace CourseRegestrationProject
                                     dt.Rows.Add(dr);
                                 }
 
-                                // Bind the DataTable to the GridView
+                            
                                 gvCoursePlan.DataSource = dt;
                                 gvCoursePlan.DataBind();
                                 ViewState["CoursePlanTable"] = dt;
                             }
                         }
 
-                        // Delete the temporary file
+                       
                         File.Delete(fileName);
-
-                        // Show success message
                         ScriptManager.RegisterStartupScript(this, GetType(), "ShowSuccess",
                             "alert('Excel file imported successfully!');", true);
                     }

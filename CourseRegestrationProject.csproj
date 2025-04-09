@@ -88,6 +88,7 @@
     <Content Include="Overview.aspx" />
     <Content Include="Add_Course.aspx" />
     <Content Include="Schedule.aspx" />
+    <Content Include="Semester.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,6 +147,13 @@
     </Compile>
     <Compile Include="Schedule.aspx.designer.cs">
       <DependentUpon>Schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Semester.aspx.cs">
+      <DependentUpon>Semester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Semester.aspx.designer.cs">
+      <DependentUpon>Semester.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
