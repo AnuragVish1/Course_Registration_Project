@@ -5,11 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         .container {
-            height: 100vh;
+            height: 100%;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 4rem;
         }
 
         .main-content {
@@ -139,11 +140,24 @@
                 <asp:TextBox ID="txtEndDate" runat="server" CssClass="form-timer"
                     TextMode="Date"></asp:TextBox>
             </div>
+            <div class="labelContainer">
+
+                <label class="form-label_box">Registration Start Date</label>
+                <asp:TextBox ID="TextBox1" runat="server" CssClass="form-timer"
+                    TextMode="Date"></asp:TextBox>
+            </div>
+            <div class="labelContainer">
+
+                <label class="form-label_box">Registration End Date</label>
+                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-timer"
+                    TextMode="Date"></asp:TextBox>
+            </div>
+
 
             <asp:RequiredFieldValidator ID="rfvSchool" runat="server" ControlToValidate="semesterName"
                 ErrorMessage="Please Select Course" CssClass="text-danger" Display="Dynamic" InitialValue=""></asp:RequiredFieldValidator>
 
-            <asp:Button ID="btnSave" runat="server" Text="Confirm" CssClass="btn-primary" OnClick="CreateSemester"/>
+            <asp:Button ID="btnSave" runat="server" Text="Confirm" CssClass="btn-primary" OnClick="CreateSemester" />
         </div>
     </div>
 </asp:Content>

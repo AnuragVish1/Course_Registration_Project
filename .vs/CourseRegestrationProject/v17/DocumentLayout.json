@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\semester.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:semester.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\semester.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\semester.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:semester.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\schedule.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\schedule.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:schedule.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\add_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|c:\\users\\anurag\\source\\repos\\courseregestrationproject\\semester.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:semester.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\add_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BD622C64-F510-418E-B40E-9985CBC479DD}|CourseRegestrationProject.csproj|solutionrelative:add_course.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +38,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Schedule.aspx",
               "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Schedule.aspx",
               "RelativeDocumentMoniker": "Schedule.aspx",
@@ -59,8 +59,7 @@
               "RelativeToolTip": "Add_Course.aspx.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T08:30:28.461Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-09T08:30:28.461Z"
             },
             {
               "$type": "Document",
@@ -76,20 +75,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Semester.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Semester.aspx.cs",
               "RelativeDocumentMoniker": "Semester.aspx.cs",
-              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Semester.aspx.cs*",
-              "RelativeToolTip": "Semester.aspx.cs*",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAACoAAAAOAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Semester.aspx.cs",
+              "RelativeToolTip": "Semester.aspx.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAAACoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-09T07:02:01.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Semester.aspx",
               "DocumentMoniker": "C:\\Users\\Anurag\\source\\repos\\CourseRegestrationProject\\Semester.aspx",
               "RelativeDocumentMoniker": "Semester.aspx",
